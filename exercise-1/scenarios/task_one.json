@@ -1,0 +1,43 @@
+{
+    "pedestrians": [
+        {
+            "locationX": 31,
+            "locationY": 2,
+            "speed": 2.3
+        },
+        {
+            "locationX": 1,
+            "locationY": 10,
+            "speed": 2.1
+        },
+        {
+            "locationX": 80,
+            "locationY": 70,
+            "speed": 2.1
+        }
+    ],
+    "targets": [
+        {
+            "locationX": 23,
+            "locationY": 25
+        },
+        {
+            "locationX": 23,
+            "locationY": 45
+        },
+        {
+            "locationX": 43,
+            "locationY": 55
+        }
+    ],
+    "obstacles": [
+        {
+            "locationX": 23,
+            "locationY": 24
+        },
+        {
+            "locationX": 23,
+            "locationY": 16
+        }
+    ]
+}

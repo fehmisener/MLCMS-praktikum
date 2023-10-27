@@ -2,6 +2,8 @@ import scipy.spatial.distance
 from PIL import Image, ImageTk
 import numpy as np
 
+from util import read_scenario
+
 
 class Pedestrian:
     """
@@ -42,13 +44,20 @@ class Pedestrian:
         :param scenario: The current scenario instance.
         """
         neighbors = self.get_neighbors(scenario)
-        next_cell_distance = scenario.target_distance_grids[self._position[0]][self._position[1]]
+        next_cell_distance = scenario.target_distance_grids[self._position[0]
+                                                            ][self._position[1]]
         next_pos = self._position
         for (n_x, n_y) in neighbors:
-            if next_cell_distance > scenario.target_distance_grids[n_x, n_y]:
+            if next_cell_distance > scenario.target_distance_grids[n_x, n_y] and not self.encounter_obstacle(n_x, n_y, scenario.obstacles):
                 next_pos = (n_x, n_y)
                 next_cell_distance = scenario.target_distance_grids[n_x, n_y]
         self._position = next_pos
+
+    def encounter_obstacle(self, next_cellX, next_cellY, obstacle_list):
+        for obstacle in obstacle_list:
+            if (next_cellX == obstacle[0] and next_cellY == obstacle[1]):
+                return True
+        return False
 
 
 class Scenario:
@@ -86,7 +95,29 @@ class Scenario:
         self.grid_image = None
         self.grid = np.zeros((width, height))
         self.pedestrians = []
+        self.obstacles = []
         self.target_distance_grids = self.recompute_target_distances()
+
+    def init_from_file(self, scenario_file):
+        """
+        Initialize the GUI with given scenario from json file.
+        """
+        scenario_elements = read_scenario(scenario_file)
+
+        for target in scenario_elements["targets"]:
+            self.grid[target["locationX"], target["locationY"]
+                      ] = Scenario.NAME2ID['TARGET']
+        self.recompute_target_distances()
+
+        for obstacle in scenario_elements["obstacles"]:
+            self.grid[obstacle["locationX"], obstacle["locationY"]
+                      ] = Scenario.NAME2ID['OBSTACLE']
+            self.obstacles.append(
+                [obstacle["locationX"], obstacle["locationY"]])
+
+        for pedestrian in scenario_elements["pedestrians"]:
+            self.pedestrians.append(Pedestrian(
+                (pedestrian["locationX"], pedestrian["locationY"]), pedestrian["speed"]))
 
     def recompute_target_distances(self):
         self.target_distance_grids = self.update_target_grid()
@@ -102,7 +133,8 @@ class Scenario:
         for x in range(self.width):
             for y in range(self.height):
                 if self.grid[x, y] == Scenario.NAME2ID['TARGET']:
-                    targets.append([y, x])  # y and x are flipped because they are in image space.
+                    # y and x are flipped because they are in image space.
+                    targets.append([y, x])
         if len(targets) == 0:
             return np.zeros((self.width, self.height))
 

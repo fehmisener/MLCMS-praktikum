@@ -61,17 +61,7 @@ class MainGUI():
         canvas.pack()
 
         sc = Scenario(100, 100)
-
-        sc.grid[23, 25] = Scenario.NAME2ID['TARGET']
-        sc.grid[23, 45] = Scenario.NAME2ID['TARGET']
-        sc.grid[43, 55] = Scenario.NAME2ID['TARGET']
-        sc.recompute_target_distances()
-
-        sc.pedestrians = [
-            Pedestrian((31, 2), 2.3),
-            Pedestrian((1, 10), 2.1),
-            Pedestrian((80, 70), 2.1)
-        ]
+        sc.init_from_file('task_one.json')
 
         # can be used to show pedestrians and targets
         sc.to_image(canvas, canvas_image)
