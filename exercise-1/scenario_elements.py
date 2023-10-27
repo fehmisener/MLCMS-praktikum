@@ -54,6 +54,35 @@ class Pedestrian:
         self._position = next_pos
 
     def encounter_obstacle(self, next_cellX, next_cellY, obstacle_list):
+        """
+        Determine if the next cell at coordinates (next_cellX, next_cellY) contains an obstacle.
+
+        This method checks if the given coordinates (next_cellX, next_cellY) match any of the obstacles
+        stored in the `obstacle_list`.
+
+        Parameters:
+        - self: The instance of the class this method belongs to.
+        - next_cellX (int): The X-coordinate of the next cell to check.
+        - next_cellY (int): The Y-coordinate of the next cell to check.
+        - obstacle_list (list of array): A list of obstacle coordinates, where each element is a list
+        containing the X and Y coordinates of an obstacle cell.
+
+        Returns:
+        - bool: True if an obstacle is found at the specified coordinates; otherwise, False.
+
+        Example:
+        ```python
+        obstacle_list = [(2, 3), (4, 5), (6, 7)]
+        result = pedestrian.encounter_obstacle(4, 5, obstacle_list)
+        print(result)  # Output: True
+        ```
+        In this example, the method checks if an obstacle exists at coordinates (4, 5) in the `obstacle_list`.
+
+        Note:
+        The method compares the provided `next_cellX` and `next_cellY` with the X and Y coordinates of each
+        obstacle in `obstacle_list`. If a matching obstacle is found, the method returns True; otherwise, it
+        returns False.
+        """
         for obstacle in obstacle_list:
             if (next_cellX == obstacle[0] and next_cellY == obstacle[1]):
                 return True
@@ -98,11 +127,36 @@ class Scenario:
         self.obstacles = []
         self.target_distance_grids = self.recompute_target_distances()
 
-    def init_from_file(self, scenario_file):
+    def init_from_file(self, scenario_name):
         """
-        Initialize the GUI with given scenario from json file.
+        Initialize the GUI with a scenario loaded from a JSON file.
+
+        This method reads a scenario from a JSON file and initializes the graphical user interface (GUI)
+        with the elements specified in the scenario.
+
+        Parameters:
+        - self: The instance of the class this method belongs to.
+        - scenario_name (str): The path to the JSON file containing the scenario data.
+
+        Returns:
+        - None
+
+        Example:
+        ```python
+        sc = Scenario(100, 100)
+        scenario_name = "scenario.json"  # Path to the scenario file
+        gui.init_from_file(scenario_name)
+        ```
+
+        In this example, the method loads a scenario from "scenario.json" and initializes the GUI with the
+        specified targets, obstacles, and pedestrians.
+
+        Note:
+        - The method uses the `read_scenario` function to read the scenario data from the JSON file.
+        - It populates the GUI grid with targets and obstacles as specified in the scenario.
+        - Ensure that the JSON file format matches the expected structure for this method to work correctly.
         """
-        scenario_elements = read_scenario(scenario_file)
+        scenario_elements = read_scenario(scenario_name)
 
         for target in scenario_elements["targets"]:
             self.grid[target["locationX"], target["locationY"]
