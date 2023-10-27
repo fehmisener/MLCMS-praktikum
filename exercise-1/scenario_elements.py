@@ -2,8 +2,6 @@ import scipy.spatial.distance
 from PIL import Image, ImageTk
 import numpy as np
 
-from util import read_scenario
-
 
 class Pedestrian:
     """
@@ -127,7 +125,7 @@ class Scenario:
         self.obstacles = []
         self.target_distance_grids = self.recompute_target_distances()
 
-    def init_from_file(self, scenario_name):
+    def init_from_file(self, scenario_data):
         """
         Initialize the GUI with a scenario loaded from a JSON file.
 
@@ -136,7 +134,7 @@ class Scenario:
 
         Parameters:
         - self: The instance of the class this method belongs to.
-        - scenario_name (str): The path to the JSON file containing the scenario data.
+        - scenario_data (dict): The path to the JSON file containing the scenario data.
 
         Returns:
         - None
@@ -144,32 +142,31 @@ class Scenario:
         Example:
         ```python
         sc = Scenario(100, 100)
-        scenario_name = "scenario.json"  # Path to the scenario file
-        gui.init_from_file(scenario_name)
+        scenario_data = load_scenario() # Loaded scenario from file
+        gui.init_from_file(scenario_data)
         ```
 
-        In this example, the method loads a scenario from "scenario.json" and initializes the GUI with the
+        In this example, the method loads a scenario from scenario json file and initializes the GUI with the
         specified targets, obstacles, and pedestrians.
 
         Note:
-        - The method uses the `read_scenario` function to read the scenario data from the JSON file.
+        - The method uses the `load_scenario` function to read and load the scenario data from the JSON file.
         - It populates the GUI grid with targets and obstacles as specified in the scenario.
         - Ensure that the JSON file format matches the expected structure for this method to work correctly.
         """
-        scenario_elements = read_scenario(scenario_name)
 
-        for target in scenario_elements["targets"]:
+        for target in scenario_data["targets"]:
             self.grid[target["locationX"], target["locationY"]
                       ] = Scenario.NAME2ID['TARGET']
         self.recompute_target_distances()
 
-        for obstacle in scenario_elements["obstacles"]:
+        for obstacle in scenario_data["obstacles"]:
             self.grid[obstacle["locationX"], obstacle["locationY"]
                       ] = Scenario.NAME2ID['OBSTACLE']
             self.obstacles.append(
                 [obstacle["locationX"], obstacle["locationY"]])
 
-        for pedestrian in scenario_elements["pedestrians"]:
+        for pedestrian in scenario_data["pedestrians"]:
             self.pedestrians.append(Pedestrian(
                 (pedestrian["locationX"], pedestrian["locationY"]), pedestrian["speed"]))
 
@@ -210,7 +207,7 @@ class Scenario:
     def update_step(self):
         """
         Updates the position of all pedestrians.
-        This does not take obstacles or other pedestrians into account.
+        This does take obstacles but not other pedestrians into account.
         Pedestrians can occupy the same cell.
         """
         for pedestrian in self.pedestrians:

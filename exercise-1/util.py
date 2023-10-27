@@ -3,10 +3,8 @@ Util program for data read and initialization operations.
 """
 
 import json
-import os
 
-
-def read_scenario(file_name):
+def read_scenario(file_path):
     """
     Read JSON data that stores pedestrians, targets and obstacles from a file for scenarios safely.
 
@@ -33,11 +31,9 @@ def read_scenario(file_name):
             # You can now safely work with the JSON data.
             print(data)
     """
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_file_path = os.path.join(current_dir, 'scenarios', file_name)
 
     try:
-        with open(json_file_path, 'r') as file:
+        with open(file_path, 'r') as file:
             json_data = json.load(file)
         return json_data
     except (FileNotFoundError, json.JSONDecodeError) as e:

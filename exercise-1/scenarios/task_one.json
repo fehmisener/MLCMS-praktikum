@@ -1,4 +1,6 @@
 {
+    "height": 100,
+    "width": 100,
     "pedestrians": [
         {
             "locationX": 31,
