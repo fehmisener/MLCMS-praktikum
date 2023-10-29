@@ -1,0 +1,38 @@
+{
+    "height": 100,
+    "width": 100,
+    "pedestrians": [
+        {
+            "locationX": 65,
+            "locationY": 50,
+            "speed": 2.0
+        },
+        {
+            "locationX": 35,
+            "locationY": 65,
+            "speed": 2.0
+        },
+        {
+            "locationX": 50,
+            "locationY": 35,
+            "speed": 2.0
+        },
+        {
+            "locationX": 65,
+            "locationY": 65,
+            "speed": 2.0
+        },
+        {
+            "locationX": 35,
+            "locationY": 50,
+            "speed": 2.0
+        }
+    ],
+    "targets": [
+        {
+            "locationX": 50,
+            "locationY": 50
+        }
+    ],
+    "obstacles": []
+}
