@@ -2,7 +2,7 @@ import sys
 from util import read_scenario
 
 import tkinter
-from tkinter import Button, Canvas, Menu
+from tkinter import Button, Canvas, Menu, Label, messagebox
 from tkinter import filedialog
 
 from scenario_elements import Scenario, Pedestrian
@@ -16,6 +16,7 @@ class MainGUI():
 
     def __init__(self):
         self.loaded_data = None
+        self.step_count = 0
 
     def create_scenario(self, ):
         print('create not implemented yet')
@@ -43,15 +44,22 @@ class MainGUI():
 
     def step_scenario(self, scenario, canvas, canvas_image):
         """
-        Moves the simulation forward by one step, and visualizes the result.
+        Moves the simulation forward by one step, visualizes the result and increments step count.
+        It also checks if the simulaiton is loaded to start the game.
 
         Args:
             scenario (scenario_elements.Scenario): Add _description_
             canvas (tkinter.Canvas): Add _description_
             canvas_image (missing _type_): Add _description_
         """
-        scenario.update_step()
-        scenario.to_image(canvas, canvas_image)
+
+        if(self.loaded_data is not None and len(self.loaded_data) > 0):
+            self.step_count += 1
+            self.label.config(text='Simulation Step Count: ' + str(self.step_count))
+            scenario.update_step()
+            scenario.to_image(canvas, canvas_image)
+        else:
+            messagebox.showerror('Cellular Automata GUI Warning', 'Warning: Please upload simulation first!')
 
     def exit_gui(self, ):
         """
@@ -130,5 +138,9 @@ class MainGUI():
         btn.place(x=380, y=10)
         btn = Button(win, text='Load simulation', command=self.load_scenario)
         btn.place(x=580, y=10)
+
+        self.label = Label(win, text='Simulation Step Count')
+        self.label.place(x = 295, y= 510)
+        win.mainloop()
 
         win.mainloop()
