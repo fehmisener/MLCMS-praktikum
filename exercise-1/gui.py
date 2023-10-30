@@ -37,11 +37,6 @@ class MainGUI():
         - After resetting the scenario, it opens the `popup` window to allow the user to create and place objects in
         the new scenario.
         """
-        self.simulation_data = {
-            "pedestrians": [],
-            "targets": [],
-            "obstacles": []
-        }
         self.step_count = 0
         self.label.config(
             text='Simulation Step Count: ' + str(self.step_count))
@@ -91,7 +86,7 @@ class MainGUI():
             scenario.to_image(canvas, canvas_image)
         else:
             messagebox.showerror(
-                'Cellular Automata GUI Warning', 'Warning: Please upload simulation first!')
+                'Cellular Automata GUI Warning', 'Warning: Please upload valid (should contain at least one target and pedestrians) simulation first!')
 
     def exit_gui(self, ):
         """
@@ -157,6 +152,11 @@ class MainGUI():
         on the canvas. The popup window is closed after the scenario is started. Without start, you can not see your
         data on the canvas.
         """
+        temp_simulation_data =  {
+                "pedestrians": [],
+                "targets": [],
+                "obstacles": []
+            }
         popup_window = Toplevel(self.win)
         popup_window.title("Popup")
 
@@ -227,10 +227,10 @@ class MainGUI():
 
             if (select_var.get() == "PEDESTRIAN"):
                 additional_input_value = int(additional_input_var.get())
-                self.simulation_data[select_var.get().lower(
+                temp_simulation_data[select_var.get().lower(
                 ) + "s"].append({"locationX": input1_value, "locationY": input2_value, "speed": additional_input_value})
             else:
-                self.simulation_data[select_var.get().lower(
+                temp_simulation_data[select_var.get().lower(
                 ) + "s"].append({"locationX": input1_value, "locationY": input2_value})
 
             input1_entry.delete(0, END)
@@ -238,9 +238,12 @@ class MainGUI():
             additional_input_entry.delete(0, END)
 
         def start():
+            self.simulation_data = temp_simulation_data
+
             self.sc = Scenario(int(height_var.get()), int(width_var.get()))
             self.sc.init_from_file(self.simulation_data)
             self.sc.to_image(self.canvas, self.canvas_image)
+
             popup_window.protocol("WM_DELETE_WINDOW", popup_window.destroy())
 
         submit_button = Button(popup_window, text="Submit", command=submit)
@@ -298,5 +301,7 @@ class MainGUI():
         btn.place(x=580, y=10)
 
         self.label = Label(self.win, text='Simulation Step Count')
+        self.label.config(
+            text='Simulation Step Count: ' + str(self.step_count))
         self.label.place(x=295, y=510)
         self.win.mainloop()
