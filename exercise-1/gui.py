@@ -63,7 +63,7 @@ class MainGUI():
         self.label.config(
             text='Simulation Step Count: ' + str(self.step_count))
 
-        self.sc = Scenario(100, 100)
+        self.sc = Scenario(self.simulation_data["height"], self.simulation_data["width"])
         self.sc.init_from_file(self.simulation_data)
         self.sc.to_image(self.canvas, self.canvas_image)
 
@@ -116,6 +116,7 @@ class MainGUI():
             "targets": [],
             "obstacles": []
         }
+        self.step_count = 0
 
         input_file = filedialog.askopenfilename(filetypes=[("Json", '*.json')])
         if not input_file:
