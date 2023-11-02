@@ -1,3 +1,29 @@
+"""
+Cellular Automata Simulation GUI
+
+This module defines a simple graphical user interface (GUI) for a cellular automata simulation. It allows users to
+create, load, and interact with scenarios involving pedestrians, targets, and obstacles.
+
+Contents:
+- `MainGUI`: The main class that defines the GUI and its functionality, including scenario creation, loading, and
+  simulation control.
+
+Usage:
+To use this module, create an instance of the `MainGUI` class and call its `start_gui` method to open the GUI.
+You can create, load, and simulate scenarios within the GUI.
+
+Example:
+```python
+from main_gui import MainGUI
+
+# Create an instance of the MainGUI class
+gui = MainGUI()
+
+# Start the GUI
+gui.start_gui()
+```
+"""
+
 import sys
 
 from util import read_scenario

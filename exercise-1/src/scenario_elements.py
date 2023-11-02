@@ -4,21 +4,7 @@ import numpy as np
 import skfmm
 import math
 
-
-def euclidean_distance(x_1, y_1, x_2, y_2):
-    """
-    Calculates the euclidean distance of two points.
-
-    Parameters:
-        x_1: x parameter of point 1
-        y_1: y parameter of point 1
-        x_2: x parameter of point 2
-        y_2: y parameter of point 2
-    """
-    x = x_1 - x_2
-    y = y_1 - y_2
-    return math.sqrt(x * x + y * y)
-
+from euclidean_distance import read_scenario
 
 # +
 class Pedestrian:
