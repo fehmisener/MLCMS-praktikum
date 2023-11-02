@@ -4,6 +4,8 @@ In this exercise, you will learn how to model and simulate a human crowd using a
 
 As a group of four, we have successfully completed all four tasks.
 
+![screenshot](applicaton.gif)
+
 ## Project Setup
 
 First you have to initialize environment
