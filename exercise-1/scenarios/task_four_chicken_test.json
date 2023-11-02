@@ -1,0 +1,415 @@
+{
+    "height": 28,
+    "width": 28,
+    "pedestrians": [
+        {
+            "locationX": 6,
+            "locationY": 7,
+            "speed": 2.0
+        }
+    ],
+    "targets": [
+        {
+            "locationX": 24,
+            "locationY": 10
+        },
+        {
+            "locationX": 24,
+            "locationY": 11
+        },
+        {
+            "locationX": 24,
+            "locationY": 12
+        }
+    ],
+    "obstacles": [
+        {
+            "locationX": 4,
+            "locationY": 10
+        },
+        {
+            "locationX": 4,
+            "locationY": 11
+        },
+        {
+            "locationX": 4,
+            "locationY": 12
+        },
+        {
+            "locationX": 24,
+            "locationY": 4
+        }, 
+       {
+            "locationX": 24,
+            "locationY": 5
+        },  
+        {
+            "locationX": 24,
+            "locationY": 6
+        }, 
+        {
+            "locationX": 24,
+            "locationY": 7
+        }, 
+        {
+            "locationX": 24,
+            "locationY": 8
+        }, 
+        {
+            "locationX": 24,
+            "locationY": 9
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 4
+        }, 
+       {
+            "locationX": 12,
+            "locationY": 5
+        },  
+        {
+            "locationX": 12,
+            "locationY": 6
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 7
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 8
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 9
+        }, 
+       {
+            "locationX": 16,
+            "locationY": 5
+        },  
+        {
+            "locationX": 16,
+            "locationY": 6
+        }, 
+        {
+            "locationX": 16,
+            "locationY": 7
+        }, 
+        {
+            "locationX": 16,
+            "locationY": 8
+        }, 
+        {
+            "locationX": 16,
+            "locationY": 9
+        }, 
+        {
+            "locationX": 15,
+            "locationY": 9
+        }, 
+        {
+            "locationX": 14,
+            "locationY": 9
+        }, 
+        {
+            "locationX": 13,
+            "locationY": 9
+        }, 
+        {
+            "locationX": 15,
+            "locationY": 12
+        }, 
+        {
+            "locationX": 14,
+            "locationY": 12
+        }, 
+        {
+            "locationX": 13,
+            "locationY": 12
+        }, 
+         {
+            "locationX": 12,
+            "locationY": 12
+        }, 
+         {
+            "locationX": 16,
+            "locationY": 12
+        }, 
+        
+        {
+            "locationX": 4,
+            "locationY": 4
+        }, 
+       {
+            "locationX": 4,
+            "locationY": 5
+        },  
+        {
+            "locationX": 4,
+            "locationY": 6
+        }, 
+        {
+            "locationX": 4,
+            "locationY": 7
+        }, 
+        {
+            "locationX": 4,
+            "locationY": 8
+        }, 
+        {
+            "locationX": 4,
+            "locationY": 9
+        }, 
+    
+        {
+            "locationX": 24,
+            "locationY": 5
+        }, 
+        {
+            "locationX": 24,
+            "locationY": 13
+        }, 
+        {
+            "locationX": 24,
+            "locationY": 14
+        },
+        {
+            "locationX": 24,
+            "locationY": 15
+        },
+        {
+            "locationX": 24,
+            "locationY": 16
+        },
+        {
+            "locationX": 24,
+            "locationY": 17
+        },
+        {
+            "locationX": 24,
+            "locationY": 18
+        },
+        {
+            "locationX": 12,
+            "locationY": 5
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 13
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 14
+        },
+        {
+            "locationX": 12,
+            "locationY": 15
+        },
+        {
+            "locationX": 12,
+            "locationY": 16
+        },
+        {
+            "locationX": 12,
+            "locationY": 17
+        },
+        {
+            "locationX": 12,
+            "locationY": 18
+        },
+        {
+            "locationX": 16,
+            "locationY": 5
+        }, 
+        {
+            "locationX": 16,
+            "locationY": 13
+        }, 
+        {
+            "locationX": 16,
+            "locationY": 14
+        },
+        {
+            "locationX": 16,
+            "locationY": 15
+        },
+        {
+            "locationX": 16,
+            "locationY": 16
+        },
+        {
+            "locationX": 16,
+            "locationY": 17
+        },
+        {
+            "locationX": 16,
+            "locationY": 18
+        },
+        {
+            "locationX": 4,
+            "locationY": 5
+        }, 
+        {
+            "locationX": 4,
+            "locationY": 13
+        }, 
+        {
+            "locationX": 4,
+            "locationY": 14
+        },
+        {
+            "locationX": 4,
+            "locationY": 15
+        },
+        {
+            "locationX": 4,
+            "locationY": 16
+        },
+        {
+            "locationX": 4,
+            "locationY": 17
+        },
+        {
+            "locationX": 4,
+            "locationY": 18
+        },
+        {
+            "locationX": 5,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 6,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 7,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 8,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 9,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 10,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 11,
+            "locationY": 4
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 4
+        }, 
+     
+        {
+            "locationX": 16,
+            "locationY": 4
+        },
+        {
+            "locationX": 17,
+            "locationY": 4
+        },
+        {
+            "locationX": 18,
+            "locationY": 4
+        },
+        {
+            "locationX": 19,
+            "locationY": 4
+        },
+        {
+            "locationX": 20,
+            "locationY": 4
+        },
+        {
+            "locationX": 21,
+            "locationY": 4
+        },
+        {
+            "locationX": 22,
+            "locationY": 4
+        },
+        {
+            "locationX": 23,
+            "locationY": 4
+        },
+        
+        
+        
+        
+        
+        
+      
+        {
+            "locationX": 5,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 6,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 7,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 8,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 9,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 10,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 11,
+            "locationY": 18
+        }, 
+        {
+            "locationX": 12,
+            "locationY": 18
+        }, 
+     
+        {
+            "locationX": 16,
+            "locationY": 4
+        },
+        {
+            "locationX": 17,
+            "locationY": 18
+        },
+        {
+            "locationX": 18,
+            "locationY": 18
+        },
+        {
+            "locationX": 19,
+            "locationY": 18
+        },
+        {
+            "locationX": 20,
+            "locationY": 18
+        },
+        {
+            "locationX": 21,
+            "locationY": 18
+        },
+        {
+            "locationX": 22,
+            "locationY": 18
+        },
+        {
+            "locationX": 23,
+            "locationY": 18
+        }
+  
+    ]
+}

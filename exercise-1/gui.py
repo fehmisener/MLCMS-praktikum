@@ -1,14 +1,19 @@
+import sys
+
 from util import read_scenario
 
-import tkinter
+from tkinter import *
 from tkinter import Button, Canvas, Menu, Label, messagebox, Toplevel, StringVar, END
 from tkinter import filedialog
 from tkinter import ttk
 
+import tkinter
+
 from scenario_elements import Scenario
 
 
-class MainGUI():
+# +
+class MainGUI:
     """
     Defines a simple graphical user interface.
     To start, use the `start_gui` method.
@@ -37,6 +42,8 @@ class MainGUI():
         - After resetting the scenario, it opens the `popup` window to allow the user to create and place objects in
         the new scenario.
         """
+        recompute_method = self.sc.recompute_method
+        self.sc.recompute_method = recompute_method
         self.step_count = 0
         self.label.config(
             text='Simulation Step Count: ' + str(self.step_count))
@@ -65,12 +72,14 @@ class MainGUI():
 
         self.sc = Scenario(self.simulation_data["height"], self.simulation_data["width"])
         self.sc.init_from_file(self.simulation_data)
+        recompute_method = self.sc.recompute_method
+        self.sc.recompute_method = recompute_method
         self.sc.to_image(self.canvas, self.canvas_image)
 
     def step_scenario(self, scenario, canvas, canvas_image):
         """
         Moves the simulation forward by one step, visualizes the result and increments step count.
-        It also checks if the simulaiton is loaded to start the game.
+        It also checks if the simulation is loaded to start the game.
 
         Args:
             scenario (scenario_elements.Scenario): Add _description_
@@ -78,7 +87,8 @@ class MainGUI():
             canvas_image (missing _type_): Add _description_
         """
 
-        if (self.simulation_data is not None and len(self.simulation_data["targets"]) > 0 and len(self.simulation_data["pedestrians"]) > 0):
+        if self.simulation_data is not None and len(self.simulation_data["targets"]) > 0 and len(
+                self.simulation_data["pedestrians"]) > 0:
             self.step_count += 1
             self.label.config(
                 text='Simulation Step Count: ' + str(self.step_count))
@@ -86,7 +96,8 @@ class MainGUI():
             scenario.to_image(canvas, canvas_image)
         else:
             messagebox.showerror(
-                'Cellular Automata GUI Warning', 'Warning: Please upload valid (should contain at least one target and pedestrians) simulation first!')
+                'Cellular Automata GUI Warning', 'Warning: Please upload valid (should contain at least one target '
+                                                 'and pedestrians) simulation first!')
 
     def exit_gui(self, ):
         """
@@ -126,8 +137,25 @@ class MainGUI():
 
         self.sc = Scenario(
             self.simulation_data["height"], self.simulation_data["width"])
+        recompute_method = self.sc.recompute_method
+        self.sc.recompute_method = recompute_method
         self.sc.init_from_file(self.simulation_data)
         self.sc.to_image(self.canvas, self.canvas_image)
+
+    def change_algorithm(self, *args):
+        """
+        Changes the algorithm used to compute the target distances depending on the option selected in the option menu.
+        The options might be 'Basic', 'Dijkstra' or 'FMM'.
+        Parameters:
+            args: contains the option displayed in the option menu
+        """
+        self.sc.recompute_method = args[0].upper()
+        self.sc.recompute_target_distances()
+        self.sc.to_image(self.canvas, self.canvas_image)
+
+    #         if self.backup_scenario != None:
+    #             self.backup_scenario.recompute_method = args[0].upper()
+    #             self.backup_scenario.recompute_target_distances()
 
     def popup(self):
         """
@@ -153,11 +181,11 @@ class MainGUI():
         on the canvas. The popup window is closed after the scenario is started. Without start, you can not see your
         data on the canvas.
         """
-        temp_simulation_data =  {
-                "pedestrians": [],
-                "targets": [],
-                "obstacles": []
-            }
+        temp_simulation_data = {
+            "pedestrians": [],
+            "targets": [],
+            "obstacles": []
+        }
         popup_window = Toplevel(self.win)
         popup_window.title("Popup")
 
@@ -187,7 +215,7 @@ class MainGUI():
 
         select_var = StringVar()
         select_box = ttk.Combobox(popup_window, textvariable=select_var, values=[
-                                  "PEDESTRIAN", "TARGET", "OBSTACLE"])
+            "PEDESTRIAN", "TARGET", "OBSTACLE"])
         select_box.grid(row=3, column=1, padx=5, pady=5)
 
         # Location X - input box
@@ -226,7 +254,7 @@ class MainGUI():
             input1_value = int(input1_var.get())
             input2_value = int(input2_var.get())
 
-            if (select_var.get() == "PEDESTRIAN"):
+            if select_var.get() == "PEDESTRIAN":
                 additional_input_value = int(additional_input_var.get())
                 temp_simulation_data[select_var.get().lower(
                 ) + "s"].append({"locationX": input1_value, "locationY": input2_value, "speed": additional_input_value})
@@ -260,7 +288,7 @@ class MainGUI():
         Also creates a rudimentary, fixed Scenario instance with three Pedestrian instances and multiple targets.
         """
         self.win = tkinter.Tk()
-        self.win.geometry('800x600')  # setting the size of the window
+        self.win.geometry('1000x600')  # setting the size of the window
         self.win.title('Cellular Automata GUI')
 
         menu = Menu(self.win)
@@ -300,6 +328,14 @@ class MainGUI():
         btn = Button(self.win, text='Load simulation',
                      command=self.load_scenario)
         btn.place(x=580, y=10)
+
+        label = Label(self.win, text="")
+
+        algorithms = ['Basic', 'Dijkstra', 'FMM']
+        selected_algorithm = tkinter.StringVar(self.win)
+        selected_algorithm.set(algorithms[0])
+        option_menu = OptionMenu(self.win, selected_algorithm, *algorithms, command=self.change_algorithm)
+        option_menu.place(x=780, y=10)
 
         self.label = Label(self.win, text='Simulation Step Count')
         self.label.config(

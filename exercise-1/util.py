@@ -4,6 +4,7 @@ Util program for data read and initialization operations.
 
 import json
 
+
 def read_scenario(file_path):
     """
     Read JSON data that stores pedestrians, targets and obstacles from a file for scenarios safely.
