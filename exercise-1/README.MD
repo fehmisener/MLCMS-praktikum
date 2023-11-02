@@ -17,7 +17,7 @@ pip install -r requirements.txt
 Start the GUI
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 ## Project Structure
