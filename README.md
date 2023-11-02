@@ -2,7 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Next][Next.js]][Next-url]
+[![Python][Python]][python-url]
 
 
 # MLCMS Exercises for Group A
@@ -31,5 +31,5 @@ For details, please review each exercise's README.md file.
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/fehmisener/MLCMS-praktikum/issues
 
-[Next.js]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
-[Next-url]: https://www.python.org/
+[Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[python-url]: https://www.python.org/

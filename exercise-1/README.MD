@@ -6,7 +6,9 @@ As a group of four, we have successfully completed all four tasks.
 
 ## Project Setup
 
-You have to initialize environment (using virtual environment would be better)
+First you have to initialize environment
+> **Note**
+> Using virtual environment would be better
 
 ```bash
 pip install -r requirements.txt
