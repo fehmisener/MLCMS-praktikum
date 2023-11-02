@@ -1,0 +1,112 @@
+{
+    "height": 25,
+    "width": 25,
+    "pedestrians": [
+        {
+            "locationX": 3,
+            "locationY": 10,
+            "speed": 2.0
+        }
+    ],
+    "targets": [
+        {
+            "locationX": 23,
+            "locationY": 10
+        },
+         {
+            "locationX": 23,
+            "locationY": 9
+        },
+         {
+            "locationX": 23,
+            "locationY": 11
+        }
+    ],
+    "obstacles": [
+        {
+            "locationX": 15,
+            "locationY": 5
+        },
+        {
+            "locationX": 14,
+            "locationY": 5
+        },
+        {
+            "locationX": 13,
+            "locationY": 5
+        },
+        {
+            "locationX": 12,
+            "locationY": 5
+        },
+        {
+            "locationX": 11,
+            "locationY": 5
+        },
+        {
+            "locationX": 10,
+            "locationY": 5
+        },
+        {
+            "locationX": 15,
+            "locationY": 6
+        },
+        {
+            "locationX": 15,
+            "locationY": 7
+        },
+        {
+            "locationX": 15,
+            "locationY": 8
+        },
+        {
+            "locationX": 15,
+            "locationY": 9
+        },
+        {
+            "locationX": 15,
+            "locationY": 10
+        },
+        {
+            "locationX": 15,
+            "locationY": 11
+        },
+        {
+            "locationX": 15,
+            "locationY": 12
+        },
+        {
+            "locationX": 15,
+            "locationY": 13
+        },
+        {
+            "locationX": 15,
+            "locationY": 14
+        },
+        {
+            "locationX": 15,
+            "locationY": 15
+        },
+        {
+            "locationX": 14,
+            "locationY": 15
+        },
+        {
+            "locationX": 13,
+            "locationY": 15
+        },
+        {
+            "locationX": 12,
+            "locationY": 15
+        },
+        {
+            "locationX": 11,
+            "locationY": 15
+        },
+        {
+            "locationX": 10,
+            "locationY": 15
+        }  
+        
+    ]
+}
