@@ -2,7 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Next][Next.js]][Next-url]]
+[![Next][Next.js]][Next-url]
 
 
 # MLCMS Exercises for Group A
