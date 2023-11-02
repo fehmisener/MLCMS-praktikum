@@ -4,7 +4,7 @@ import numpy as np
 import skfmm
 import math
 
-from euclidean_distance import read_scenario
+from util import euclidean_distance
 
 # +
 class Pedestrian:
