@@ -35,7 +35,6 @@ class Pedestrian:
         self.distance_walked = 0
         self.ticks = 0
         self.finished = False
-        self.saved = False
 
     def copy(self):
         return Pedestrian(self._position, self._desired_speed)
@@ -75,15 +74,6 @@ class Pedestrian:
         Parameters:
             scenario: The current scenario instance.
         """
-        if self.finished:
-            if not self.saved:
-                self.saved = True
-                if self.ticks == 0:
-                    self.ticks = 1
-                if self.id != -1:
-                    scenario.pedestrian_records.append(
-                        [self.id, self.age, self.desired_speed, self.distance_walked / self.ticks])
-            return False
 
         moved = False
         available_distance = self._desired_speed + self.accumulated_distance

@@ -3,9 +3,49 @@
     "width": 28,
     "pedestrians": [
         {
-            "locationX": 6,
+            "locationX": 5,
             "locationY": 7,
             "speed": 2.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 8,
+            "speed": 1.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 9,
+            "speed": 3.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 10,
+            "speed": 1.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 11,
+            "speed": 2.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 12,
+            "speed": 3.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 13,
+            "speed": 1.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 14,
+            "speed": 2.0
+        },
+        {
+            "locationX": 5,
+            "locationY": 15,
+            "speed": 3.0
         }
     ],
     "targets": [
@@ -38,137 +78,137 @@
         {
             "locationX": 24,
             "locationY": 4
-        }, 
-       {
+        },
+        {
             "locationX": 24,
             "locationY": 5
-        },  
+        },
         {
             "locationX": 24,
             "locationY": 6
-        }, 
+        },
         {
             "locationX": 24,
             "locationY": 7
-        }, 
+        },
         {
             "locationX": 24,
             "locationY": 8
-        }, 
+        },
         {
             "locationX": 24,
             "locationY": 9
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 4
-        }, 
-       {
+        },
+        {
             "locationX": 12,
             "locationY": 5
-        },  
+        },
         {
             "locationX": 12,
             "locationY": 6
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 7
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 8
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 9
-        }, 
-       {
+        },
+        {
             "locationX": 16,
             "locationY": 5
-        },  
+        },
         {
             "locationX": 16,
             "locationY": 6
-        }, 
+        },
         {
             "locationX": 16,
             "locationY": 7
-        }, 
+        },
         {
             "locationX": 16,
             "locationY": 8
-        }, 
+        },
         {
             "locationX": 16,
             "locationY": 9
-        }, 
+        },
         {
             "locationX": 15,
             "locationY": 9
-        }, 
+        },
         {
             "locationX": 14,
             "locationY": 9
-        }, 
+        },
         {
             "locationX": 13,
             "locationY": 9
-        }, 
+        },
         {
             "locationX": 15,
             "locationY": 12
-        }, 
+        },
         {
             "locationX": 14,
             "locationY": 12
-        }, 
+        },
         {
             "locationX": 13,
             "locationY": 12
-        }, 
+        },
          {
             "locationX": 12,
             "locationY": 12
-        }, 
+        },
          {
             "locationX": 16,
             "locationY": 12
-        }, 
-        
+        },
+
         {
             "locationX": 4,
             "locationY": 4
-        }, 
-       {
+        },
+        {
             "locationX": 4,
             "locationY": 5
-        },  
+        },
         {
             "locationX": 4,
             "locationY": 6
-        }, 
+        },
         {
             "locationX": 4,
             "locationY": 7
-        }, 
+        },
         {
             "locationX": 4,
             "locationY": 8
-        }, 
+        },
         {
             "locationX": 4,
             "locationY": 9
-        }, 
-    
+        },
+
         {
             "locationX": 24,
             "locationY": 5
-        }, 
+        },
         {
             "locationX": 24,
             "locationY": 13
-        }, 
+        },
         {
             "locationX": 24,
             "locationY": 14
@@ -192,11 +232,11 @@
         {
             "locationX": 12,
             "locationY": 5
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 13
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 14
@@ -220,11 +260,11 @@
         {
             "locationX": 16,
             "locationY": 5
-        }, 
+        },
         {
             "locationX": 16,
             "locationY": 13
-        }, 
+        },
         {
             "locationX": 16,
             "locationY": 14
@@ -248,11 +288,11 @@
         {
             "locationX": 4,
             "locationY": 5
-        }, 
+        },
         {
             "locationX": 4,
             "locationY": 13
-        }, 
+        },
         {
             "locationX": 4,
             "locationY": 14
@@ -276,36 +316,36 @@
         {
             "locationX": 5,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 6,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 7,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 8,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 9,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 10,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 11,
             "locationY": 4
-        }, 
+        },
         {
             "locationX": 12,
             "locationY": 4
-        }, 
-     
+        },
+
         {
             "locationX": 16,
             "locationY": 4
@@ -338,13 +378,6 @@
             "locationX": 23,
             "locationY": 4
         },
-        
-        
-        
-        
-        
-        
-      
         {
             "locationX": 5,
             "locationY": 18

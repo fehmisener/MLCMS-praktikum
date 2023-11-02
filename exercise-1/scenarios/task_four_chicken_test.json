@@ -13,11 +13,11 @@
             "locationX": 23,
             "locationY": 10
         },
-         {
+        {
             "locationX": 23,
             "locationY": 9
         },
-         {
+        {
             "locationX": 23,
             "locationY": 11
         }
@@ -106,7 +106,7 @@
         {
             "locationX": 10,
             "locationY": 15
-        }  
-        
+        }
+
     ]
 }
