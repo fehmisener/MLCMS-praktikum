@@ -25,9 +25,9 @@ $ java -jar builds/vadere.v2.6.linux/vadere-gui.jar
 
 ```bash
 .
-├── assignment              # Exercise documents
-├── scenarios               # JSON files of the scenarios
-├── src                     # Source files of project
+├── assignment                # Exercise documents
+├── builds                    # Vadere source codes
+├── vadere                    # Vadere project files 
 ├── README.md
 └── requirements.txt
 ```
