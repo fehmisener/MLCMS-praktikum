@@ -1,6 +1,6 @@
 {
   "name" : "chicken",
-  "description" : "",
+  "description" : "This is the chicken test sceario file for Vadere",
   "release" : "2.6",
   "processWriters" : {
     "files" : [ {
@@ -189,7 +189,7 @@
           "distribution" : null,
           "individualWaiting" : true
         },
-        "leavingSpeed" : -1.0,
+        "leavingSpeed" : 1.0,
         "parallelEvents" : 0
       } ],
       "targetChangers" : [ ],

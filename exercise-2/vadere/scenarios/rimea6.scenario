@@ -1,6 +1,6 @@
 {
   "name" : "rimea6",
-  "description" : "",
+  "description" : "This is the RiMEA test 6 scenario file for Vadere",
   "release" : "2.6",
   "processWriters" : {
     "files" : [ {
@@ -141,9 +141,9 @@
         "id" : 2,
         "shape" : {
           "x" : 0.0,
-          "y" : 0.0,
-          "width" : 12.0,
-          "height" : 2.0,
+          "y" : 1.0,
+          "width" : 15.0,
+          "height" : 1.0,
           "type" : "RECTANGLE"
         },
         "visible" : true
@@ -151,19 +151,9 @@
         "id" : 6,
         "shape" : {
           "x" : 0.0,
-          "y" : 3.996415770609323,
-          "width" : 10.0,
-          "height" : 11.0,
-          "type" : "RECTANGLE"
-        },
-        "visible" : true
-      }, {
-        "id" : 7,
-        "shape" : {
-          "x" : 12.0,
-          "y" : 0.0,
-          "width" : 3.0,
-          "height" : 15.0,
+          "y" : 4.0,
+          "width" : 13.0,
+          "height" : 10.95360824742268,
           "type" : "RECTANGLE"
         },
         "visible" : true
@@ -173,7 +163,7 @@
       "targets" : [ {
         "id" : 8,
         "shape" : {
-          "x" : 10.0,
+          "x" : 13.0,
           "y" : 14.0,
           "width" : 2.0,
           "height" : 1.0,
@@ -189,7 +179,7 @@
           "distribution" : null,
           "individualWaiting" : true
         },
-        "leavingSpeed" : -1.0,
+        "leavingSpeed" : 1.0,
         "parallelEvents" : 0
       } ],
       "targetChangers" : [ ],
@@ -199,7 +189,7 @@
       "sources" : [ {
         "id" : 1,
         "shape" : {
-          "x" : 0.0,
+          "x" : 3.0,
           "y" : 2.0,
           "width" : 6.0,
           "height" : 2.0,
