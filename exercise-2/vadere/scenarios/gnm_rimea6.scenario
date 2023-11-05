@@ -1,6 +1,6 @@
 {
-  "name" : "chicken",
-  "description" : "This is the chicken test sceario file for Vadere",
+  "name" : "gnm_rimea6",
+  "description" : "This is the RiMEA test 6 scenario file for Vadere",
   "release" : "2.6",
   "processWriters" : {
     "files" : [ {
@@ -37,38 +37,26 @@
     "isWriteMetaData" : false
   },
   "scenario" : {
-    "mainModel" : "org.vadere.simulator.models.osm.OptimalStepsModel",
+    "mainModel" : "org.vadere.simulator.models.gnm.GradientNavigationModel",
     "attributesModel" : {
-      "org.vadere.state.attributes.models.AttributesOSM" : {
-        "stepCircleResolution" : 4,
-        "numberOfCircles" : 1,
-        "optimizationType" : "NELDER_MEAD",
-        "varyStepDirection" : true,
-        "movementType" : "ARBITRARY",
-        "stepLengthIntercept" : 0.4625,
-        "stepLengthSlopeSpeed" : 0.2345,
-        "stepLengthSD" : 0.036,
-        "movementThreshold" : 0.0,
-        "minStepLength" : 0.1,
-        "minimumStepLength" : true,
-        "maxStepDuration" : 1.7976931348623157E308,
-        "dynamicStepLength" : true,
-        "updateType" : "EVENT_DRIVEN",
-        "seeSmallWalls" : false,
+      "org.vadere.state.attributes.models.AttributesGNM" : {
+        "attributesODEIntegrator" : {
+          "solverType" : "DORMAND_PRINCE_45",
+          "stepSizeMin" : 1.0E-4,
+          "stepSizeMax" : 1.0,
+          "toleranceAbsolute" : 1.0E-5,
+          "toleranceRelative" : 1.0E-4
+        },
+        "floorGradientProviderType" : "FLOOR_EIKONAL_DISCRETE",
         "targetPotentialModel" : "org.vadere.simulator.models.potential.fields.PotentialFieldTargetGrid",
-        "pedestrianPotentialModel" : "org.vadere.simulator.models.potential.PotentialFieldPedestrianCompactSoftshell",
-        "obstaclePotentialModel" : "org.vadere.simulator.models.potential.PotentialFieldObstacleCompactSoftshell",
-        "submodels" : [ ]
+        "pedestrianPotentialModel" : "org.vadere.simulator.models.gnm.PotentialFieldPedestrianGNM",
+        "obstaclePotentialModel" : "org.vadere.simulator.models.gnm.PotentialFieldObstacleGNM"
       },
-      "org.vadere.state.attributes.models.AttributesPotentialCompactSoftshell" : {
-        "pedPotentialIntimateSpaceWidth" : 0.45,
-        "pedPotentialPersonalSpaceWidth" : 1.2,
-        "pedPotentialHeight" : 50.0,
-        "obstPotentialWidth" : 0.8,
-        "obstPotentialHeight" : 6.0,
-        "intimateSpaceFactor" : 1.2,
-        "personalSpacePower" : 1,
-        "intimateSpacePower" : 1
+      "org.vadere.state.attributes.models.AttributesPotentialGNM" : {
+        "pedestrianBodyPotential" : 2.72,
+        "pedestrianRecognitionDistance" : 0.8,
+        "obstacleBodyPotential" : 20.1,
+        "obstacleRepulsionStrength" : 0.25
       },
       "org.vadere.state.attributes.models.AttributesFloorField" : {
         "createMethod" : "HIGH_ACCURACY_FAST_MARCHING",
@@ -93,7 +81,7 @@
       }
     },
     "attributesSimulation" : {
-      "finishTime" : 80.0,
+      "finishTime" : 30.0,
       "simTimeStepLength" : 0.4,
       "realTimeSimTimeRatio" : 0.1,
       "writeSimulationData" : true,
@@ -101,7 +89,7 @@
       "printFPS" : false,
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
-      "fixedSeed" : -157615929621720822,
+      "fixedSeed" : 2635516510522057636,
       "simulationSeed" : 0
     },
     "attributesPsychology" : {
@@ -130,40 +118,30 @@
         "bounds" : {
           "x" : 0.0,
           "y" : 0.0,
-          "width" : 25.0,
-          "height" : 25.0
+          "width" : 15.0,
+          "height" : 15.0
         },
         "boundingBoxWidth" : 0.0,
         "bounded" : true,
         "referenceCoordinateSystem" : null
       },
       "obstacles" : [ {
+        "id" : 2,
+        "shape" : {
+          "x" : 0.0,
+          "y" : 1.0,
+          "width" : 15.0,
+          "height" : 1.0,
+          "type" : "RECTANGLE"
+        },
+        "visible" : true
+      }, {
         "id" : 6,
         "shape" : {
-          "x" : 10.0,
-          "y" : 5.0,
-          "width" : 6.0,
-          "height" : 1.0,
-          "type" : "RECTANGLE"
-        },
-        "visible" : true
-      }, {
-        "id" : 7,
-        "shape" : {
-          "x" : 15.0,
-          "y" : 6.0,
-          "width" : 1.0,
-          "height" : 10.0,
-          "type" : "RECTANGLE"
-        },
-        "visible" : true
-      }, {
-        "id" : 8,
-        "shape" : {
-          "x" : 10.0,
-          "y" : 16.0,
-          "width" : 6.0,
-          "height" : 1.0,
+          "x" : 0.0,
+          "y" : 4.0,
+          "width" : 13.0,
+          "height" : 10.95360824742268,
           "type" : "RECTANGLE"
         },
         "visible" : true
@@ -171,18 +149,18 @@
       "measurementAreas" : [ ],
       "stairs" : [ ],
       "targets" : [ {
-        "id" : 2,
+        "id" : 8,
         "shape" : {
-          "x" : 23.0,
-          "y" : 9.0,
-          "width" : 1.0,
-          "height" : 3.0,
+          "x" : 13.0,
+          "y" : 14.0,
+          "width" : 2.0,
+          "height" : 1.0,
           "type" : "RECTANGLE"
         },
         "visible" : true,
         "absorber" : {
           "enabled" : true,
-          "deletionDistance" : 0.1
+          "deletionDistance" : 0.5
         },
         "waiter" : {
           "enabled" : false,
@@ -197,16 +175,16 @@
       "aerosolClouds" : [ ],
       "droplets" : [ ],
       "sources" : [ {
-        "id" : 5,
+        "id" : 1,
         "shape" : {
           "x" : 3.0,
-          "y" : 10.0,
-          "width" : 1.0,
-          "height" : 1.0,
+          "y" : 2.0,
+          "width" : 6.0,
+          "height" : 2.0,
           "type" : "RECTANGLE"
         },
         "visible" : true,
-        "targetIds" : [ 2 ],
+        "targetIds" : [ 8 ],
         "spawner" : {
           "type" : "org.vadere.state.attributes.spawner.AttributesRegularSpawner",
           "constraintsElementsMax" : -1,
@@ -215,7 +193,7 @@
           "eventPositionRandom" : false,
           "eventPositionGridCA" : false,
           "eventPositionFreeSpace" : true,
-          "eventElementCount" : 100,
+          "eventElementCount" : 20,
           "eventElement" : null,
           "distribution" : {
             "type" : "org.vadere.state.attributes.distributions.AttributesConstantDistribution",
