@@ -48,7 +48,9 @@ python src/pedestrian_adder.py --path vadere/scenarios/rimea6.scenario --output 
 ├── assignment                # Exercise documents
 ├── builds                    # Vadere source codes
 ├── src                       # Source files of the project
-├── vadere                    # Vadere project files
+├── vadere                    
+│   ├── output                # Results of the scenarios
+│   └── scenarios             # Scenario files of the exercise
 ├── README.md
 └── requirements.txt
 ```
