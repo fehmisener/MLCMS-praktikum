@@ -2,6 +2,7 @@
   "name" : "osm_rimea6_pedestrian_added",
   "description" : "This is the RiMEA test 6 scenario file for Vadere",
   "release" : "2.6",
+  "commithash" : "4a948856326cf1d990d827e4fd4fea9e9f989074",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
@@ -102,7 +103,7 @@
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
       "fixedSeed" : 2635516510522057636,
-      "simulationSeed" : 0
+      "simulationSeed" : 2635516510522057636
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,

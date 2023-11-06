@@ -1,7 +1,8 @@
 {
-  "name" : "osm_rimea6_pedestrian_added",
-  "description" : "This is the RiMEA test 6 scenario file for Vadere",
+  "name" : "osm_chicken",
+  "description" : "This is the chicken test sceario file for Vadere",
   "release" : "2.6",
+  "commithash" : "4a948856326cf1d990d827e4fd4fea9e9f989074",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
@@ -93,7 +94,7 @@
       }
     },
     "attributesSimulation" : {
-      "finishTime" : 30.0,
+      "finishTime" : 80.0,
       "simTimeStepLength" : 0.4,
       "realTimeSimTimeRatio" : 0.1,
       "writeSimulationData" : true,
@@ -101,8 +102,8 @@
       "printFPS" : false,
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
-      "fixedSeed" : 2635516510522057636,
-      "simulationSeed" : 0
+      "fixedSeed" : -157615929621720822,
+      "simulationSeed" : -157615929621720822
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,
@@ -130,30 +131,40 @@
         "bounds" : {
           "x" : 0.0,
           "y" : 0.0,
-          "width" : 15.0,
-          "height" : 15.0
+          "width" : 25.0,
+          "height" : 25.0
         },
         "boundingBoxWidth" : 0.0,
         "bounded" : true,
         "referenceCoordinateSystem" : null
       },
       "obstacles" : [ {
-        "id" : 2,
+        "id" : 6,
         "shape" : {
-          "x" : 0.0,
-          "y" : 1.0,
-          "width" : 15.0,
+          "x" : 10.0,
+          "y" : 5.0,
+          "width" : 6.0,
           "height" : 1.0,
           "type" : "RECTANGLE"
         },
         "visible" : true
       }, {
-        "id" : 6,
+        "id" : 7,
         "shape" : {
-          "x" : 0.0,
-          "y" : 4.0,
-          "width" : 13.0,
-          "height" : 10.95360824742268,
+          "x" : 15.0,
+          "y" : 6.0,
+          "width" : 1.0,
+          "height" : 10.0,
+          "type" : "RECTANGLE"
+        },
+        "visible" : true
+      }, {
+        "id" : 8,
+        "shape" : {
+          "x" : 10.0,
+          "y" : 16.0,
+          "width" : 6.0,
+          "height" : 1.0,
           "type" : "RECTANGLE"
         },
         "visible" : true
@@ -161,18 +172,18 @@
       "measurementAreas" : [ ],
       "stairs" : [ ],
       "targets" : [ {
-        "id" : 8,
+        "id" : 2,
         "shape" : {
-          "x" : 13.0,
-          "y" : 14.0,
-          "width" : 2.0,
-          "height" : 1.0,
+          "x" : 23.0,
+          "y" : 9.0,
+          "width" : 1.0,
+          "height" : 3.0,
           "type" : "RECTANGLE"
         },
         "visible" : true,
         "absorber" : {
           "enabled" : true,
-          "deletionDistance" : 0.5
+          "deletionDistance" : 0.1
         },
         "waiter" : {
           "enabled" : false,
@@ -187,16 +198,16 @@
       "aerosolClouds" : [ ],
       "droplets" : [ ],
       "sources" : [ {
-        "id" : 1,
+        "id" : 5,
         "shape" : {
           "x" : 3.0,
-          "y" : 2.0,
-          "width" : 6.0,
-          "height" : 2.0,
+          "y" : 10.0,
+          "width" : 1.0,
+          "height" : 1.0,
           "type" : "RECTANGLE"
         },
         "visible" : true,
-        "targetIds" : [ 8 ],
+        "targetIds" : [ 2 ],
         "spawner" : {
           "type" : "org.vadere.state.attributes.spawner.AttributesRegularSpawner",
           "constraintsElementsMax" : -1,
@@ -205,7 +216,7 @@
           "eventPositionRandom" : false,
           "eventPositionGridCA" : false,
           "eventPositionFreeSpace" : true,
-          "eventElementCount" : 20,
+          "eventElementCount" : 100,
           "eventElement" : null,
           "distribution" : {
             "type" : "org.vadere.state.attributes.distributions.AttributesConstantDistribution",
@@ -214,72 +225,7 @@
         },
         "groupSizeDistribution" : [ 1.0 ]
       } ],
-      "dynamicElements" : [ {
-        "attributes" : {
-          "id" : 99,
-          "shape" : {
-            "x" : 0.0,
-            "y" : 0.0,
-            "width" : 1.0,
-            "height" : 1.0,
-            "type" : "RECTANGLE"
-          },
-          "visible" : true,
-          "radius" : 0.2,
-          "densityDependentSpeed" : false,
-          "speedDistributionMean" : 1.34,
-          "speedDistributionStandardDeviation" : 0.26,
-          "minimumSpeed" : 0.5,
-          "maximumSpeed" : 2.2,
-          "acceleration" : 2.0,
-          "footstepHistorySize" : 4,
-          "searchRadius" : 1.0,
-          "walkingDirectionSameIfAngleLessOrEqual" : 45.0,
-          "walkingDirectionCalculation" : "BY_TARGET_CENTER"
-        },
-        "source" : null,
-        "targetIds" : [ 8 ],
-        "nextTargetListIndex" : 0,
-        "isCurrentTargetAnAgent" : false,
-        "position" : {
-          "x" : 14.0,
-          "y" : 3.0
-        },
-        "velocity" : {
-          "x" : 0.0,
-          "y" : 0.0
-        },
-        "freeFlowSpeed" : 1.33,
-        "followers" : [ ],
-        "idAsTarget" : -1,
-        "isChild" : false,
-        "isLikelyInjured" : false,
-        "psychologyStatus" : {
-          "mostImportantStimulus" : null,
-          "threatMemory" : {
-            "allThreats" : [ ],
-            "latestThreatUnhandled" : false
-          },
-          "selfCategory" : "TARGET_ORIENTED",
-          "groupMembership" : "OUT_GROUP",
-          "knowledgeBase" : {
-            "knowledge" : [ ],
-            "informationState" : "NO_INFORMATION"
-          },
-          "perceivedStimuli" : [ ],
-          "nextPerceivedStimuli" : [ ]
-        },
-        "healthStatus" : null,
-        "infectionStatus" : null,
-        "groupIds" : [ ],
-        "groupSizes" : [ ],
-        "agentsInGroup" : [ ],
-        "trajectory" : {
-          "footSteps" : [ ]
-        },
-        "modelPedestrianMap" : null,
-        "type" : "PEDESTRIAN"
-      } ],
+      "dynamicElements" : [ ],
       "attributesPedestrian" : {
         "shape" : {
           "x" : 0.0,

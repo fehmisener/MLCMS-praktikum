@@ -1,7 +1,8 @@
 {
-  "name" : "osm_rimea6_pedestrian_added",
+  "name" : "osm_rimea6",
   "description" : "This is the RiMEA test 6 scenario file for Vadere",
   "release" : "2.6",
+  "commithash" : "4a948856326cf1d990d827e4fd4fea9e9f989074",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
@@ -102,7 +103,7 @@
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
       "fixedSeed" : 2635516510522057636,
-      "simulationSeed" : 0
+      "simulationSeed" : 2635516510522057636
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,
@@ -214,72 +215,7 @@
         },
         "groupSizeDistribution" : [ 1.0 ]
       } ],
-      "dynamicElements" : [ {
-        "attributes" : {
-          "id" : 99,
-          "shape" : {
-            "x" : 0.0,
-            "y" : 0.0,
-            "width" : 1.0,
-            "height" : 1.0,
-            "type" : "RECTANGLE"
-          },
-          "visible" : true,
-          "radius" : 0.2,
-          "densityDependentSpeed" : false,
-          "speedDistributionMean" : 1.34,
-          "speedDistributionStandardDeviation" : 0.26,
-          "minimumSpeed" : 0.5,
-          "maximumSpeed" : 2.2,
-          "acceleration" : 2.0,
-          "footstepHistorySize" : 4,
-          "searchRadius" : 1.0,
-          "walkingDirectionSameIfAngleLessOrEqual" : 45.0,
-          "walkingDirectionCalculation" : "BY_TARGET_CENTER"
-        },
-        "source" : null,
-        "targetIds" : [ 8 ],
-        "nextTargetListIndex" : 0,
-        "isCurrentTargetAnAgent" : false,
-        "position" : {
-          "x" : 14.0,
-          "y" : 3.0
-        },
-        "velocity" : {
-          "x" : 0.0,
-          "y" : 0.0
-        },
-        "freeFlowSpeed" : 1.33,
-        "followers" : [ ],
-        "idAsTarget" : -1,
-        "isChild" : false,
-        "isLikelyInjured" : false,
-        "psychologyStatus" : {
-          "mostImportantStimulus" : null,
-          "threatMemory" : {
-            "allThreats" : [ ],
-            "latestThreatUnhandled" : false
-          },
-          "selfCategory" : "TARGET_ORIENTED",
-          "groupMembership" : "OUT_GROUP",
-          "knowledgeBase" : {
-            "knowledge" : [ ],
-            "informationState" : "NO_INFORMATION"
-          },
-          "perceivedStimuli" : [ ],
-          "nextPerceivedStimuli" : [ ]
-        },
-        "healthStatus" : null,
-        "infectionStatus" : null,
-        "groupIds" : [ ],
-        "groupSizes" : [ ],
-        "agentsInGroup" : [ ],
-        "trajectory" : {
-          "footSteps" : [ ]
-        },
-        "modelPedestrianMap" : null,
-        "type" : "PEDESTRIAN"
-      } ],
+      "dynamicElements" : [ ],
       "attributesPedestrian" : {
         "shape" : {
           "x" : 0.0,

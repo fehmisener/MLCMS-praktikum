@@ -1,7 +1,8 @@
 {
-  "name" : "osm_rimea6_pedestrian_added",
-  "description" : "This is the RiMEA test 6 scenario file for Vadere",
+  "name" : "osm_rimea1",
+  "description" : "This is the RiMEA test 1 scenario file for Vadere",
   "release" : "2.6",
+  "commithash" : "4a948856326cf1d990d827e4fd4fea9e9f989074",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
@@ -93,7 +94,7 @@
       }
     },
     "attributesSimulation" : {
-      "finishTime" : 30.0,
+      "finishTime" : 40.0,
       "simTimeStepLength" : 0.4,
       "realTimeSimTimeRatio" : 0.1,
       "writeSimulationData" : true,
@@ -101,8 +102,8 @@
       "printFPS" : false,
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
-      "fixedSeed" : 2635516510522057636,
-      "simulationSeed" : 0
+      "fixedSeed" : 356013257155125809,
+      "simulationSeed" : 356013257155125809
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,
@@ -130,8 +131,8 @@
         "bounds" : {
           "x" : 0.0,
           "y" : 0.0,
-          "width" : 15.0,
-          "height" : 15.0
+          "width" : 60.0,
+          "height" : 60.0
         },
         "boundingBoxWidth" : 0.0,
         "bounded" : true,
@@ -141,19 +142,29 @@
         "id" : 2,
         "shape" : {
           "x" : 0.0,
-          "y" : 1.0,
-          "width" : 15.0,
-          "height" : 1.0,
+          "y" : 30.0,
+          "width" : 60.0,
+          "height" : 5.0,
           "type" : "RECTANGLE"
         },
         "visible" : true
       }, {
-        "id" : 6,
+        "id" : 4,
         "shape" : {
           "x" : 0.0,
-          "y" : 4.0,
-          "width" : 13.0,
-          "height" : 10.95360824742268,
+          "y" : 35.0,
+          "width" : 9.8,
+          "height" : 2.0,
+          "type" : "RECTANGLE"
+        },
+        "visible" : true
+      }, {
+        "id" : 1,
+        "shape" : {
+          "x" : 0.0,
+          "y" : 37.0,
+          "width" : 60.0,
+          "height" : 5.0,
           "type" : "RECTANGLE"
         },
         "visible" : true
@@ -161,12 +172,12 @@
       "measurementAreas" : [ ],
       "stairs" : [ ],
       "targets" : [ {
-        "id" : 8,
+        "id" : 5,
         "shape" : {
-          "x" : 13.0,
-          "y" : 14.0,
-          "width" : 2.0,
-          "height" : 1.0,
+          "x" : 50.0,
+          "y" : 35.0,
+          "width" : 10.0,
+          "height" : 2.0,
           "type" : "RECTANGLE"
         },
         "visible" : true,
@@ -186,37 +197,10 @@
       "absorbingAreas" : [ ],
       "aerosolClouds" : [ ],
       "droplets" : [ ],
-      "sources" : [ {
-        "id" : 1,
-        "shape" : {
-          "x" : 3.0,
-          "y" : 2.0,
-          "width" : 6.0,
-          "height" : 2.0,
-          "type" : "RECTANGLE"
-        },
-        "visible" : true,
-        "targetIds" : [ 8 ],
-        "spawner" : {
-          "type" : "org.vadere.state.attributes.spawner.AttributesRegularSpawner",
-          "constraintsElementsMax" : -1,
-          "constraintsTimeStart" : 0.0,
-          "constraintsTimeEnd" : 0.0,
-          "eventPositionRandom" : false,
-          "eventPositionGridCA" : false,
-          "eventPositionFreeSpace" : true,
-          "eventElementCount" : 20,
-          "eventElement" : null,
-          "distribution" : {
-            "type" : "org.vadere.state.attributes.distributions.AttributesConstantDistribution",
-            "updateFrequency" : 1.0
-          }
-        },
-        "groupSizeDistribution" : [ 1.0 ]
-      } ],
+      "sources" : [ ],
       "dynamicElements" : [ {
         "attributes" : {
-          "id" : 99,
+          "id" : 3,
           "shape" : {
             "x" : 0.0,
             "y" : 0.0,
@@ -238,12 +222,12 @@
           "walkingDirectionCalculation" : "BY_TARGET_CENTER"
         },
         "source" : null,
-        "targetIds" : [ 8 ],
+        "targetIds" : [ 5 ],
         "nextTargetListIndex" : 0,
         "isCurrentTargetAnAgent" : false,
         "position" : {
-          "x" : 14.0,
-          "y" : 3.0
+          "x" : 10.000000000000002,
+          "y" : 35.99999999999999
         },
         "velocity" : {
           "x" : 0.0,
