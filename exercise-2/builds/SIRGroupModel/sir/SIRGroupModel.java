@@ -6,16 +6,16 @@ import org.vadere.simulator.models.Model;
 import org.vadere.simulator.models.groups.AbstractGroupModel;
 import org.vadere.simulator.models.groups.Group;
 import org.vadere.simulator.models.groups.GroupSizeDeterminator;
-import org.vadere.simulator.models.groups.cgm.CentroidGroup;
 import org.vadere.simulator.models.potential.fields.IPotentialFieldTarget;
 import org.vadere.simulator.projects.Domain;
 import org.vadere.state.attributes.Attributes;
-import org.vadere.simulator.models.groups.sir.SIRGroup;
 import org.vadere.state.attributes.models.AttributesSIRG;
 import org.vadere.state.attributes.scenario.AttributesAgent;
 import org.vadere.state.scenario.DynamicElementContainer;
 import org.vadere.state.scenario.Pedestrian;
 import org.vadere.state.scenario.Topography;
+import org.vadere.util.geometry.LinkedCellsGrid;
+import org.vadere.util.geometry.shapes.VPoint;
 
 import java.util.*;
 
@@ -183,19 +183,26 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 	@Override
 	public void update(final double simTimeInSec) {
 		// check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
+		// Check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
 		DynamicElementContainer<Pedestrian> c = topography.getPedestrianDynamicElements();
+		LinkedCellsGrid<Pedestrian> grid = c.getCellsElements();
+		double infectionRadius = attributesSIRG.getInfectionMaxDistance();
+		double infectionRate = attributesSIRG.getInfectionRate();
 
 		if (c.getElements().size() > 0) {
 			for(Pedestrian p : c.getElements()) {
 				// loop over neighbors and set infected if we are close
 				for(Pedestrian p_neighbor : c.getElements()) {
-					if(p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
+					SIRGroup g = getGroup(p);
+					if (g.getID() == SIRType.ID_INFECTED.ordinal())
 						continue;
-					double dist = p.getPosition().distance(p_neighbor.getPosition());
-					if (dist < attributesSIRG.getInfectionMaxDistance() &&
-							this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
-						SIRGroup g = getGroup(p);
-						if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
+					VPoint position = p.getPosition();
+					List<Pedestrian> neighbors = grid.getObjects(position, infectionRadius);
+
+					for (Pedestrian n : neighbors) {
+						if (p == n || getGroup(n).getID() != SIRType.ID_INFECTED.ordinal())
+							continue;
+						if (this.random.nextDouble() < infectionRate) {
 							elementRemoved(p);
 							assignToGroup(p, SIRType.ID_INFECTED.ordinal());
 						}
