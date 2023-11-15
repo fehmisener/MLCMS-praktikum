@@ -1,3 +1,5 @@
+
+
 For rebuilding the vadere software, you have to download the vadere master from github and replace the following files in corresponding locations.
 
 The files SIRGroup.java, SIRGroupModel.java (updated version that's in git) and SIRType.java within folder “sir” should be moved into a newly created folder at the directory VadereSimulator/src/org/vadere/simulator/models/groups/sir;

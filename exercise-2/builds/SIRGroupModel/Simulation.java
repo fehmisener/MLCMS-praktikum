@@ -479,7 +479,6 @@ public class Simulation implements ControllerProvider{
 			int pedestriansInSimulation = this.simulationState.getTopography().getPedestrianDynamicElements().getElements().size();
 			int aerosolCloudsInSimulation = this.simulationState.getTopography().getAerosolClouds().size();
 
-			// Only update until there are pedestrians in the scenario or pedestrian to spawn or aerosol clouds persist
 			if (!stillSpawningSource.isEmpty() || pedestriansInSimulation > 0 || aerosolCloudsInSimulation > 0) {
 				if (m instanceof SIRGroupModel) {
 					accumulatedTime += this.attributesSimulation.getSimTimeStepLength();
@@ -492,8 +491,7 @@ public class Simulation implements ControllerProvider{
 				else m.update(simTimeInSec);
 
 				if (topography.isRecomputeCells()) {
-					// rebuild CellGrid if model does not manage the CellGrid state while updating
-					topographyController.update(simTimeInSec); //rebuild CellGrid
+					topographyController.update(simTimeInSec);
 				}
 			}
 		}
