@@ -83,7 +83,6 @@ app.layout = html.Div(children=[
     )]
 )
 
-
 @app.callback(Output('SIR-result-graph', 'figure'),
               [Input('output-file-dropdown', 'value')])
 def update_figure(selected_values):
@@ -95,7 +94,7 @@ def update_figure(selected_values):
         if len(folder) == 0:
             continue
 
-        scatter, group_counts = create_folder_data_scatter(folder)
+        scatter = create_folder_data_scatter(folder)
         if scatter:
             figures.extend(scatter)
     if len(figures) > 0:
