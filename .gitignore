@@ -162,3 +162,5 @@ cython_debug/
 *.DS_Store
 
 log.out
+ml_praktikum
+exercise-2/vadere
