@@ -4,7 +4,7 @@ from skimage import transform
 import imageio
 
 # Load the image and convert it to grayscale
-original_image = imageio.imread('raccoon.jpeg', pilmode='L')
+original_image = imageio.imread('../data/raccoon.jpeg', pilmode='L')
 # Rescale the image to have size (249 × 185)
 rescaled_image = transform.resize(original_image, (185, 249))
 

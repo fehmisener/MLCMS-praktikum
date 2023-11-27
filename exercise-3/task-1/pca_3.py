@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
 # Load trajectory data with space as delimiter
-data = np.loadtxt('data_DMAP_PCA_vadere.txt', delimiter=' ')
+data = np.loadtxt('../data/data_DMAP_PCA_vadere.txt', delimiter=' ')
 
 # Extract positions of the first two pedestrians
 pedestrian1 = data[:, :2]

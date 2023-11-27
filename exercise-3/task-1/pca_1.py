@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the dataset from the file pca_dataset.txt
-data = np.loadtxt('pca_dataset.txt')
+data = np.loadtxt('../data/pca_dataset.txt')
 
 # Center the data by subtracting the mean
 mean_data = np.mean(data, axis=0)
