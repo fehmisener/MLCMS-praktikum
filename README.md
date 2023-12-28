@@ -7,8 +7,6 @@
 
 # MLCMS Exercises for Group A
 
-Simple framework for the cellular automaton in exercise 1.
-
 Exercises for the course of Machine Learning in Crowd Modelling and Simulation @ TUM. You will find each exercise in seperate folder following name format *exercise-#*.
 
 For details, please review each exercise's README.md file.
