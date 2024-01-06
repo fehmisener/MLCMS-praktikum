@@ -5,12 +5,12 @@ from vadere_helper import map_to_vadere_scenario, run_scenario
 
 
 class RunScenarioResource(Resource):
-    def get(self):
+    def post(self):
         try:
             data = RunScenarioInputSchema().load(request.get_json())
             temp_simulation_name = map_to_vadere_scenario(data)
-            run_scenario(temp_simulation_name)
+            response = run_scenario(temp_simulation_name)
 
-            return {"message": "Scenario executed successfully"}, 200
+            return {"message": "Scenario executed successfully", "data": response }, 200
         except Exception as e:
             return {"error": str(e)}, 400

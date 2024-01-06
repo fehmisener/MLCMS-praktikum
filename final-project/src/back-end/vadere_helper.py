@@ -2,12 +2,34 @@ import os
 import json
 import subprocess
 import uuid
+import pandas as pd
 
 
 def run_scenario(scenario_name):
     """ Run vadere from console and wait until the script finished. After that read postvis.traj file in builds/vadere.v2.6.linux/output/{scenario_name}"""
 
-    delete_temp_scenarip(scenario_name)
+    os.chdir('/Users/machine/Developer/tum/MLCMS-praktikum/final-project/src/builds/vadere.v2.6.linux')
+    
+    java_command = [
+        'java',
+        '-jar',
+        'vadere-console.jar',
+        'scenario-run',
+        '--scenario-file',
+        '/Users/machine/Developer/tum/MLCMS-praktikum/final-project/src/back-end/'+scenario_name+'.scenario',
+    ]
+
+    try:
+        print(subprocess.run(java_command, check=True, capture_output=True))
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+    
+    os.chdir('/Users/machine/Developer/tum/MLCMS-praktikum/final-project/src/builds/vadere.v2.6.linux/output/'+scenario_name)
+    data = pd.read_csv('postvis.traj', delimiter=' ')
+    
+    os.chdir('/Users/machine/Developer/tum/MLCMS-praktikum/final-project/src/back-end')
+    delete_temp_scenario(scenario_name)
+    return data.to_dict(orient="records")
 
 
 
@@ -97,45 +119,6 @@ def save_scenario(data):
         json.dump(data, f, indent=2)
     return data["name"]
 
-def delete_temp_scenarip(name):
+def delete_temp_scenario(name):
     """ Remove temporarly created simulation scenario after the simulation"""
-
-map_to_vadere_scenario(
-    {
-        "model_name": "osm",
-        "source": {
-            "shape": {
-                "x": 5,
-                "y": 5
-            },
-            "event_element_count": 2
-        },
-        "target": {
-            "shape": {
-                "x": 30,
-                "y": 30
-            },
-        },
-        "obstacles": [
-            {
-                "id": 29,
-                "shape": {
-                    "x": 25,
-                    "y": 15,
-                    "width": 1,
-                    "height": 5
-                }
-            },
-            {
-                "id": 28,
-                "shape": {
-                    "x": 20,
-                    "y": 15,
-                    "width": 2,
-                    "height": 5
-                }
-            }
-        ]
-
-    }
-)
+    os.remove('/Users/machine/Developer/tum/MLCMS-praktikum/final-project/src/back-end/'+name+'.scenario')
