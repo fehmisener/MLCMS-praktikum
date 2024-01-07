@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grid Matrix</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="buttons-container">
+            <div class="buttons">
+                <button onclick="clearObstacles()">Clear Obstacles</button>
+                <button onclick="uploadJsonFile()">Upload JSON File</button>
+
+                <div class="dropdown">
+                    <button onclick="toggleDropdown()">Add to Selection</button>
+                    <div id="dropdownContent" class="dropdown-content hidden">
+                        <button onclick="setElementSelection('obstacle')">
+                            Add a Obstacle to Selection (Grey)
+                        </button>
+                        <button onclick="setElementSelection('source')">
+                            Add a Source to Selection (Green)
+                        </button>
+                        <button onclick="setElementSelection('target')">
+                            Add a Target to Selection (red)
+                        </button>
+                    </div>
+                </div>
+                <button onclick="sendApiRequest()">Run Simulation</button>
+
+                <div id="pedestrianModal" class="modal">
+                  <div class="modal-content">
+                      <span class="close" onclick="closePedestrianModal()">&times;</span>
+                      <p>Enter the number of pedestrians (integer):</p>
+                      <input type="number" id="pedestrianInput">
+                      <button onclick="confirmPedestrianInput()">OK</button>
+                  </div>
+              </div>
+              
+
+                <!-- Add other buttons as needed -->
+            </div>
+        </div>
+
+        <input
+            type="file"
+            id="jsonFile"
+            accept=".json"
+            style="display: none"
+            onchange="initializeMap()"
+        />
+
+        <script src="script.js"></script>
+        <script src="view.js"></script>
+        <script src="api.js"></script>
+    </body>
+</html>
