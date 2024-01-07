@@ -8,4 +8,4 @@ api = Api(app)
 api.add_resource(RunScenarioResource, '/run-scenario')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
