@@ -46,7 +46,7 @@ def run_scenario(scenario_name):
         print(f"Error: {e}")
 
     data = pd.read_csv(os.path.join(output_dir, "postvis.traj"), delimiter=" ")
-    # delete_temp_scenario(scenario_name)
+    delete_temp_scenario(scenario_name)
 
     return data.to_dict(orient="records")
 
