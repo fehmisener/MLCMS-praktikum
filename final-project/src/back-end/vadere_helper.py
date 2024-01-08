@@ -46,7 +46,7 @@ def run_scenario(scenario_name):
         print(f"Error: {e}")
 
     data = pd.read_csv(os.path.join(output_dir, "postvis.traj"), delimiter=" ")
-    delete_temp_scenario(scenario_name)
+    # delete_temp_scenario(scenario_name)
 
     return data.to_dict(orient="records")
 
@@ -62,6 +62,14 @@ def map_to_vadere_scenario(request_json):
     - str: The name of the saved Vadere scenario.
     """
     temp_scenario = read_scenario(request_json["model_name"])
+
+    temp_scenario["scenario"]["topography"]["attributes"]["bounds"]["width"] = request_json[
+        "width"
+    ]
+    temp_scenario["scenario"]["topography"]["attributes"]["bounds"]["height"] = request_json[
+        "height"
+    ]
+
     temp_scenario = map_to_vadere_source(temp_scenario, request_json)
     temp_scenario = map_to_vadere_target(temp_scenario, request_json)
     temp_scenario = map_to_vadere_obstacles(temp_scenario, request_json)

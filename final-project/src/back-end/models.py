@@ -18,6 +18,8 @@ class ObstacleSchema(Schema):
     shape = fields.Nested(ShapeSchema, required=True)
 
 class RunScenarioInputSchema(Schema):
+    width = fields.Float(required=True)
+    height = fields.Float(required=True)
     model_name = fields.String(required=True)
     source = fields.Nested(SourceSchema, required=True)
     target = fields.Nested(TargetSchema, required=True)
