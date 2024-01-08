@@ -9,7 +9,8 @@
     <body>
         <div class="buttons-container">
             <div class="buttons">
-                <button onclick="clearObstacles()">Clear Obstacles</button>
+                <button onclick="clearElemets()">Clear Elements</button>
+                <button onclick="setDeleteMode()">Delete Element</button>
                 <button onclick="uploadJsonFile()">Upload JSON File</button>
 
                 <div class="dropdown">
@@ -29,14 +30,15 @@
                 <button onclick="sendApiRequest()">Run Simulation</button>
 
                 <div id="pedestrianModal" class="modal">
-                  <div class="modal-content">
-                      <span class="close" onclick="closePedestrianModal()">&times;</span>
-                      <p>Enter the number of pedestrians (integer):</p>
-                      <input type="number" id="pedestrianInput">
-                      <button onclick="confirmPedestrianInput()">OK</button>
-                  </div>
-              </div>
-              
+                    <div class="modal-content">
+                        <span class="close" onclick="closePedestrianModal()"
+                            >&times;</span
+                        >
+                        <p>Enter the number of pedestrians (integer):</p>
+                        <input type="number" id="pedestrianInput" />
+                        <button onclick="confirmPedestrianInput()">OK</button>
+                    </div>
+                </div>
 
                 <!-- Add other buttons as needed -->
             </div>
