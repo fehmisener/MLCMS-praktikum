@@ -9,15 +9,20 @@ class RunScenarioResource(Resource):
         try:
             data = RunScenarioInputSchema().load(request.get_json())
             temp_simulation_name = map_to_vadere_scenario(data)
-            response = run_scenario(temp_simulation_name)
-            return {"message": "Scenario executed successfully", "data": response}, 200
-        except Exception as e:
-            return {"error": str(e)}, 400
-        
-class GetModelsResource(Resource):
-    def get(self):
-        try:
-            return {"message": "Available models listed successfully", "data": list_avaliable_models()}, 200
+            return {
+                "message": "Scenario executed successfully",
+                "data": run_scenario(temp_simulation_name),
+            }, 200
         except Exception as e:
             return {"error": str(e)}, 400
 
+
+class GetModelsResource(Resource):
+    def get(self):
+        try:
+            return {
+                "message": "Available models listed successfully",
+                "data": list_avaliable_models(),
+            }, 200
+        except Exception as e:
+            return {"error": str(e)}, 400

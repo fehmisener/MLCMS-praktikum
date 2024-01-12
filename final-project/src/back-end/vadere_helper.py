@@ -35,8 +35,7 @@ def run_scenario(scenario_name):
         os.path.join(vadere_dir, "vadere-console.jar"),
         "scenario-run",
         "--scenario-file",
-        os.path.join(base_dir, "builds", "resources",
-                     f"{scenario_name}.scenario"),
+        os.path.join(base_dir, "builds", "resources", f"{scenario_name}.scenario"),
         "--output-dir",
         os.path.join(base_dir, "builds", "resources"),
     ]
@@ -64,12 +63,12 @@ def map_to_vadere_scenario(request_json):
     """
     temp_scenario = read_scenario(request_json["model_name"])
 
-    temp_scenario["scenario"]["topography"]["attributes"]["bounds"]["width"] = request_json[
+    temp_scenario["scenario"]["topography"]["attributes"]["bounds"][
         "width"
-    ]
-    temp_scenario["scenario"]["topography"]["attributes"]["bounds"]["height"] = request_json[
+    ] = request_json["width"]
+    temp_scenario["scenario"]["topography"]["attributes"]["bounds"][
         "height"
-    ]
+    ] = request_json["height"]
 
     temp_scenario = map_to_vadere_source(temp_scenario, request_json)
     temp_scenario = map_to_vadere_target(temp_scenario, request_json)
@@ -175,8 +174,7 @@ def read_scenario(model):
     """
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
     scenario_name = f"default_{model}.scenario"
-    scenario_path = os.path.join(
-        base_dir, "builds", "resources", scenario_name)
+    scenario_path = os.path.join(base_dir, "builds", "resources", scenario_name)
 
     with open(scenario_path, "r") as f:
         data = json.load(f)
@@ -195,8 +193,7 @@ def save_scenario(data):
     data["name"] = data["name"] + temp_scenario_name
 
     with open(
-        os.path.join(base_dir, "builds", "resources",
-                     f"{data['name']}.scenario"), "w"
+        os.path.join(base_dir, "builds", "resources", f"{data['name']}.scenario"), "w"
     ) as f:
         json.dump(data, f, indent=2)
     return data["name"]
@@ -220,8 +217,7 @@ def delete_temp_scenario(scenario_name):
     scenario_file_path = os.path.join(
         base_dir, "builds", "resources", f"{scenario_name}.scenario"
     )
-    scenario_output_path = os.path.join(
-        base_dir, "builds", "resources", scenario_name)
+    scenario_output_path = os.path.join(base_dir, "builds", "resources", scenario_name)
 
     try:
         os.remove(scenario_file_path)
@@ -234,5 +230,18 @@ def delete_temp_scenario(scenario_name):
 
 
 def list_avaliable_models():
-    """Return names of the avaliable models in builds/resources folder"""
-    return [file.split("_")[1].split(".")[0] for file in os.listdir(os.path.join(base_dir, "builds", "resources")) if file.startswith("default_") and file.endswith(".scenario")]
+    """
+    Return names of the available models in the builds/resources folder.
+
+    Returns:
+    - list: A list of model names.
+
+    Example:
+    >>> list_available_models()
+    ['model1', 'model2', 'model3']
+    """
+    return [
+        file.split("_")[1].split(".")[0]
+        for file in os.listdir(os.path.join(base_dir, "builds", "resources"))
+        if file.startswith("default_") and file.endswith(".scenario")
+    ]
