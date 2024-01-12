@@ -35,7 +35,7 @@ No need to setup any additional dependencies but you need to change API end-poin
 
 ### Run Scenario
 
-This Flask API is designed to execute scenarios using Vadere simulation. The `RunScenarioResource` allows you to send a POST request with scenario input data, and it returns the results of the executed scenario.
+This Flask API is designed to execute scenarios using Vadere simulation. The `run-scenario` allows you to send a POST request with scenario input data, and it returns the results of the executed scenario.
 
 **URL** : `/run-scenario`
 
@@ -140,10 +140,10 @@ This Flask API is designed to execute scenarios using Vadere simulation. The `Ru
 ---
 </details>
 
-<br />
 <details>
 
  <summary><b>Example Request</b></summary>
+</br>
 
 ```json
 {
@@ -185,11 +185,11 @@ This Flask API is designed to execute scenarios using Vadere simulation. The `Ru
 ```
 </details>
 
-</br>
 
 <details>
 
  <summary><b>Success Response</b></summary>
+</br>
 
 **Code** : `200 OK`
 
