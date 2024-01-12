@@ -203,3 +203,29 @@ This Flask API is designed to execute scenarios using Vadere simulation. The `ru
 </details>
 
 ---
+
+### Get Models
+
+This Flask API is designed to list avaliable models of Vadere. The `get-models` list necessary model names to execute a simulation.
+
+**URL** : `/get-models`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+<details>
+
+ <summary><b>Success Response</b></summary>
+</br>
+
+**Code** : `200 OK`
+
+**Content example**
+
+```json
+{
+  "token": "93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
+}
+```
+</details>

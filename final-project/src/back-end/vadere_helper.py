@@ -35,7 +35,8 @@ def run_scenario(scenario_name):
         os.path.join(vadere_dir, "vadere-console.jar"),
         "scenario-run",
         "--scenario-file",
-        os.path.join(base_dir, "builds", "resources", f"{scenario_name}.scenario"),
+        os.path.join(base_dir, "builds", "resources",
+                     f"{scenario_name}.scenario"),
         "--output-dir",
         os.path.join(base_dir, "builds", "resources"),
     ]
@@ -174,7 +175,8 @@ def read_scenario(model):
     """
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
     scenario_name = f"default_{model}.scenario"
-    scenario_path = os.path.join(base_dir, "builds", "resources", scenario_name)
+    scenario_path = os.path.join(
+        base_dir, "builds", "resources", scenario_name)
 
     with open(scenario_path, "r") as f:
         data = json.load(f)
@@ -193,7 +195,8 @@ def save_scenario(data):
     data["name"] = data["name"] + temp_scenario_name
 
     with open(
-        os.path.join(base_dir, "builds", "resources", f"{data['name']}.scenario"), "w"
+        os.path.join(base_dir, "builds", "resources",
+                     f"{data['name']}.scenario"), "w"
     ) as f:
         json.dump(data, f, indent=2)
     return data["name"]
@@ -217,7 +220,8 @@ def delete_temp_scenario(scenario_name):
     scenario_file_path = os.path.join(
         base_dir, "builds", "resources", f"{scenario_name}.scenario"
     )
-    scenario_output_path = os.path.join(base_dir, "builds", "resources", scenario_name)
+    scenario_output_path = os.path.join(
+        base_dir, "builds", "resources", scenario_name)
 
     try:
         os.remove(scenario_file_path)
@@ -227,3 +231,8 @@ def delete_temp_scenario(scenario_name):
         print(f"Scenario file not found: {scenario_file_path}")
     except OSError as e:
         print(f"Error deleting scenario file: {e}")
+
+
+def list_avaliable_models():
+    """Return names of the avaliable models in builds/resources folder"""
+    return [file.split("_")[1].split(".")[0] for file in os.listdir(os.path.join(base_dir, "builds", "resources")) if file.startswith("default_") and file.endswith(".scenario")]
