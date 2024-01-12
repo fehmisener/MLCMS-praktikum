@@ -27,7 +27,7 @@
                         </button>
                     </div>
                 </div>
-                <button onclick="sendApiRequest()">Run Simulation</button>
+                <button onclick="openModelModal()">Run Simulation</button>
 
                 <div id="pedestrianModal" class="modal">
                     <div class="modal-content">
@@ -40,7 +40,16 @@
                     </div>
                 </div>
 
-                <!-- Add other buttons as needed -->
+                <div id="modelModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModelModal()"
+                            >&times;</span
+                        >
+                        <label for="modelSelect">Select Model:</label>
+                        <select id="modelSelect"></select>
+                        <button id="confirmModelButton">Confirm</button>
+                    </div>
+                </div>
             </div>
         </div>
 

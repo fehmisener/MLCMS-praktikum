@@ -40,10 +40,8 @@ function initializeMap() {
 }
 
 function initializeMapFromJSON(json) {
-    // Clear existing obstacles and reset the target flag
     clearElemets();
 
-    // Initialize obstacles based on JSON
     json.obstacles.forEach((obstacle) => {
         const { locationX, locationY, type } = obstacle;
         if (
@@ -57,7 +55,6 @@ function initializeMapFromJSON(json) {
             const colIndex = locationY;
             matrix[rowIndex][colIndex].isObstacle = true;
 
-            // If a target is being initialized, set the target flag
             if (type === "target") {
                 targetExists = true;
             }
@@ -67,17 +64,16 @@ function initializeMapFromJSON(json) {
 
 function toggleDropdown() {
     const dropdownContent = document.getElementById("dropdownContent");
-    dropdownContent.classList.toggle("hidden"); // Toggle the "hidden" class
+    dropdownContent.classList.toggle("hidden");
 }
 
-// Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
     if (!event.target.matches(".dropdown button")) {
         const dropdowns = document.getElementsByClassName("dropdown-content");
         for (let i = 0; i < dropdowns.length; i++) {
             const openDropdown = dropdowns[i];
             if (!openDropdown.classList.contains("hidden")) {
-                openDropdown.classList.add("hidden"); // Add the "hidden" class
+                openDropdown.classList.add("hidden");
             }
         }
     }

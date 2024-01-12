@@ -1,6 +1,6 @@
-function generateApiInput() {
+function generateApiInput(modelName) {
     const apiInput = {
-        model_name: "osm",
+        model_name: modelName,
         width: cols,
         height: rows,
         source: {
@@ -49,8 +49,8 @@ function generateUniqueId(x, y) {
     return parseInt(x, 10) * 100 + parseInt(y, 10);
 }
 
-function sendApiRequest() {
-    const apiInput = generateApiInput();
+function sendApiRequest(modelName) {
+    const apiInput = generateApiInput(modelName);
 
     fetch("http://localhost:5000/run-scenario", {
         method: "POST",
@@ -117,8 +117,30 @@ function displaySimulationResults(response) {
 }
 
 function getRandomColor(pedestrianId) {
-    const seed = pedestrianId * 17; // Use a constant multiplier to vary the seed
+    const seed = pedestrianId * 17;
     const randomValue = Math.abs(Math.sin(seed));
-    const hue = randomValue * 360; // Hue value between 0 and 360
-    return `hsl(${hue}, 100%, 50%)`; // Convert to HSL color format
+    const hue = randomValue * 360;
+    return `hsl(${hue}, 100%, 50%)`;
+}
+
+function openModelModal() {
+    const apiUrl = "http://localhost:5000/get-models";
+
+    fetch(apiUrl)
+        .then((response) => response.json())
+        .then((models) => {
+            populateModelSelect(models);
+            modelModal.style.display = "block";
+        })
+        .catch((error) => console.error("Error fetching models:", error));
+}
+
+function populateModelSelect(models) {
+    modelSelect.innerHTML = "";
+    models.data.forEach((model) => {
+        const option = document.createElement("option");
+        option.value = model;
+        option.text = model;
+        modelSelect.appendChild(option);
+    });
 }

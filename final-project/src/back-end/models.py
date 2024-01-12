@@ -27,6 +27,6 @@ class RunScenarioInputSchema(Schema):
     
     @validates('model_name')
     def validate_model_name(self, value):
-        valid_model_names = ['osm', 'sfm', 'gnm']
+        valid_model_names = ['osm', 'sfm', 'gnm', 'sct'] #TODO: get from the method
         if value not in valid_model_names:
             raise ValidationError(f"Invalid model_name. Choose from: {', '.join(valid_model_names)}")

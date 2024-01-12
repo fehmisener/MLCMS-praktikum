@@ -113,3 +113,24 @@ function confirmPedestrianInput() {
         );
     }
 }
+
+function closeModelModal() {
+    const modal = document.getElementById("modelModal");
+    modal.style.display = "none";
+}
+
+const confirmModelButton = document.getElementById("confirmModelButton");
+confirmModelButton.addEventListener("click", function () {
+    const selectedModel = modelSelect.value;
+    if (selectedModel) {
+        closeModelModal();
+        clearSimulation();
+        sendApiRequest(selectedModel);
+    }
+});
+
+
+function clearSimulation() {
+    const circles = document.querySelectorAll(".circle");
+    circles.forEach((circle) => circle.parentNode.removeChild(circle));
+}
