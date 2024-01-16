@@ -22,7 +22,7 @@ To run back-end you will need to have the following dependencies installed
   pip install -r /path/to/requirements.txt
   ```
 
-- Vadere 2.6 (OS does not matter, **must be placed under the builds folder as named "vadere.v2.6"**)
+- [Vadere 2.6](https://www.vadere.org/download/) (OS does not matter, **must be placed under the builds folder as named "vadere.v2.6"**)
   - Vadere requires Java 11 or above, recommended Java 17.
 
 
