@@ -98,6 +98,7 @@ function openPedestrianModal() {
 function closePedestrianModal() {
     const modal = document.getElementById("pedestrianModal");
     modal.style.display = "none";
+    isMouseDown = false;
 }
 
 function confirmPedestrianInput() {
