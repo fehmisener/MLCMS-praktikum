@@ -52,7 +52,7 @@ function generateUniqueId(x, y) {
 function sendApiRequest(modelName) {
     const apiInput = generateApiInput(modelName);
 
-    fetch("http://localhost:5000/run-scenario", {
+    fetch("http://127.0.0.1:5000/run-scenario", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -124,7 +124,7 @@ function getRandomColor(pedestrianId) {
 }
 
 function openModelModal() {
-    const apiUrl = "http://localhost:5000/get-models";
+    const apiUrl = "http://127.0.0.1:5000/get-models";
 
     fetch(apiUrl)
         .then((response) => response.json())
