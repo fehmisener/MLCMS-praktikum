@@ -16,14 +16,15 @@ API support to connect Vadera application through the console on the server side
 
 To run back-end you will need to have the following dependencies installed
 
-- Python 3.7 or higher
-- Vadere 2.6 (OS does not matter, must be placed under the builds folder as named "vadere.v2.6")
+- Python 3.7 or higher,
+  - You can install necessary python libraries by running the following command:
+  ```bash
+  pip install -r /path/to/requirements.txt
+  ```
 
-You can install necessary python libraries by running the following command:
+- Vadere 2.6 (OS does not matter, **must be placed under the builds folder as named "vadere.v2.6"**)
+  - Vadere requires Java 11 or above, recommended Java 17.
 
-```bash
-pip install -r /path/to/requirements.txt
-```
 
 After the dependency installation you can run the back-end from `app.py` script. Do not forget to change the port, ip address and other settings according to your needs.
 
@@ -38,6 +39,9 @@ No need to setup any additional dependencies but you need to change API end-poin
 ### Run Scenario
 
 This Flask API is designed to execute scenarios using Vadere simulation. The `run-scenario` allows you to send a POST request with scenario input data, and it returns the results of the executed scenario.
+
+> [!WARNING]  
+> The service covers scenarios with a simulation time of up to 50 seconds only due to Vadere's fixed finishTime setting.
 
 **URL** : `/run-scenario`
 
