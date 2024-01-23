@@ -13,6 +13,7 @@ function clearElemets() {
     sourceExists = false;
     source_element_count = 1;
     elementSelection = "obstacle";
+    disableButtons();
 }
 
 function uploadJsonFile() {

@@ -88,6 +88,8 @@ function setElementSelection(type) {
 
 function setDeleteMode() {
     deleteMode = !deleteMode;
+    clearSimulation();
+    disableButtons();
 }
 
 function openPedestrianModal() {
@@ -126,12 +128,117 @@ confirmModelButton.addEventListener("click", function () {
     if (selectedModel) {
         closeModelModal();
         clearSimulation();
-        sendApiRequest(selectedModel);
+        disableButtons();
+
+        if (targetExists && sourceExists) {
+            sendApiRequest(selectedModel);
+        }
     }
 });
-
 
 function clearSimulation() {
     const circles = document.querySelectorAll(".circle");
     circles.forEach((circle) => circle.parentNode.removeChild(circle));
+}
+
+const startSimulationButton = document.getElementById("startSimulationButton");
+const stopSimulationButton = document.getElementById("stopSimulationButton");
+const fastForwardButton = document.getElementById("fastForwardButton");
+const previousStepButton = document.getElementById("previousStepButton");
+const nextStepButton = document.getElementById("nextStepButton");
+const currentStepSpan = document.getElementById("currentStep");
+
+startSimulationButton.addEventListener("click", startSimulation);
+stopSimulationButton.addEventListener("click", stopSimulation);
+fastForwardButton.addEventListener("click", fastForwardSimulation);
+previousStepButton.addEventListener("click", previousStep);
+nextStepButton.addEventListener("click", nextStep);
+
+function startSimulation() {
+    if (maxStepCount == 0) {
+        alert("Simulation data is empty");
+        return;
+    }
+
+    simulationInterval = setInterval(() => {
+        if (currentStep < maxStepCount) {
+            displaySimulationResults(currentStep);
+            currentStep++;
+
+            updateCurrentStepDisplay();
+        } else {
+            stopSimulation();
+        }
+    }, 1000);
+}
+
+function stopSimulation() {
+    clearInterval(simulationInterval);
+}
+
+function fastForwardSimulation() {
+    if (maxStepCount == 0) {
+        alert("Simulation data is empty");
+        return;
+    }
+
+    if (simulationInterval) {
+        stopSimulation();
+    }
+
+    simulationInterval = setInterval(() => {
+        if (currentStep < maxStepCount) {
+            displaySimulationResults(currentStep);
+            currentStep++;
+
+            updateCurrentStepDisplay();
+        } else {
+            stopSimulation();
+        }
+    }, 250);
+}
+
+function previousStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        removeCirclesByStep(currentStep);
+        updateCurrentStepDisplay();
+    }
+}
+
+function nextStep() {
+    if (currentStep <= maxStepCount - 1) {
+        displaySimulationResults(currentStep);
+        currentStep++;
+        updateCurrentStepDisplay();
+    }
+}
+
+function updateCurrentStepDisplay() {
+    currentStepSpan.textContent = `Step: ${currentStep}`;
+}
+
+function removeCirclesByStep(step) {
+    const circles = document.querySelectorAll('.circle[id="' + step + '"]');
+
+    circles.forEach((circle) => {
+        circle.parentNode.removeChild(circle);
+    });
+}
+
+function enableButtons() {
+    startSimulationButton.disabled = false;
+    stopSimulationButton.disabled = false;
+    fastForwardButton.disabled = false;
+    previousStepButton.disabled = false;
+    nextStepButton.disabled = false;
+}
+
+function disableButtons() {
+    startSimulationButton.disabled = true;
+    stopSimulationButton.disabled = true;
+    fastForwardButton.disabled = true;
+    previousStepButton.disabled = true;
+    nextStepButton.disabled = true;
+    currentStepSpan.textContent = "Step: 0";
 }

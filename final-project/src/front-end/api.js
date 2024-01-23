@@ -49,8 +49,16 @@ function generateUniqueId(x, y) {
     return parseInt(x, 10) * 100 + parseInt(y, 10);
 }
 
+let groupedData = {};
+let currentStep = 0;
+let maxStepCount = 0;
+
 function sendApiRequest(modelName) {
     const apiInput = generateApiInput(modelName);
+
+    groupedData = {};
+    currentStep = 0;
+    maxStepCount = 0;
 
     fetch("http://127.0.0.1:5000/run-scenario", {
         method: "POST",
@@ -62,57 +70,59 @@ function sendApiRequest(modelName) {
         .then((response) => response.json())
         .then((data) => {
             console.log("API Response:", data);
-            displaySimulationResults(data);
+            groupedData = groupByPedestrianId(data.data);
+            maxStepCount = findMaxIterationCount(groupedData);
+            enableButtons();
         })
         .catch((error) => {
             console.error("API Request Error:", error);
         });
 }
 
-function displaySimulationResults(response) {
-    const data = response.data;
-
-    data.forEach((move, index) => {
-        const pedestrianId = move.pedestrianId;
-
-        // Create a circle for each move
-        const circle = document.createElement("div");
-        circle.classList.add("circle");
-
-        bottomLeftPositions = matrix[rows - 1][0].getBoundingClientRect();
-
-        circle.style.left =
-            bottomLeftPositions.left +
-            (move["startX-PID1"] - 0.2) * gridSize +
-            "px";
-        circle.style.top =
-            bottomLeftPositions.bottom -
-            (move["startY-PID1"] + 0.3) * gridSize +
-            "px";
-
-        circle.style.backgroundColor = getRandomColor(pedestrianId);
-
-        matrix[rows - Math.floor(move["startY-PID1"]) - 1][
-            Math.floor(move["startX-PID1"])
-        ].appendChild(circle);
-
-        /*
-        if (index > 0) {
-            const prevMove = data[index - 1];
-
-            const line = document.createElement('div');
-            line.classList.add('line');
-            line.style.width = '2px'; // Adjust based on your preference
-            line.style.height = Math.sqrt((move.startX - prevMove.endX) ** 2 + (move.startY - prevMove.endY) ** 2) * gridSize + 'px';
-            line.style.backgroundColor = 'orange';
-            line.style.position = 'absolute';
-            line.style.left = move.startX * gridSize + 'px';
-            line.style.top = move.startY * gridSize + 'px';
-            line.style.transformOrigin = 'top';
-            line.style.transform = `rotate(${Math.atan2(move.startY - prevMove.endY, move.startX - prevMove.endX)}rad)`;
-            matrix[move.startX][move.startY].appendChild(line);
+const groupByPedestrianId = (data) => {
+    const grouped = {};
+    data.forEach((item) => {
+        const pid = item.pedestrianId;
+        if (!grouped[pid]) {
+            grouped[pid] = [];
         }
-        */
+        grouped[pid].push(item);
+    });
+    return grouped;
+};
+
+function findMaxIterationCount(groupedData) {
+    return Math.max(
+        ...Object.values(groupedData).map((dataArray) => dataArray.length)
+    );
+}
+
+function displaySimulationResults(step) {
+    const bottomLeftPositions = matrix[rows - 1][0].getBoundingClientRect();
+
+    Object.keys(groupedData).forEach((pedestrianId) => {
+        const dataAtStep = groupedData[pedestrianId][step];
+
+        if (dataAtStep) {
+            let circle = document.createElement("div");
+
+            circle.id = step;
+            circle.classList.add("circle");
+            circle.style.backgroundColor = getRandomColor(pedestrianId);
+
+            circle.style.left =
+                bottomLeftPositions.left +
+                (dataAtStep["startX-PID1"] - 0.2) * gridSize +
+                "px";
+            circle.style.top =
+                bottomLeftPositions.bottom -
+                (dataAtStep["startY-PID1"] + 0.3) * gridSize +
+                "px";
+
+            matrix[rows - Math.floor(dataAtStep["startY-PID1"]) - 1][
+                Math.floor(dataAtStep["startX-PID1"])
+            ].appendChild(circle);
+        }
     });
 }
 
