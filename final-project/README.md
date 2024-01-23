@@ -4,7 +4,7 @@ This final project focuses on developing a Web-based Crowd Trajectory Visualizat
 
 In conclusion, the Web-based Crowd Trajectory Visualization Framework project addresses diverse aspects of crowd simulation and visualization, from setting up the initial software environment to implementing advanced algorithms and providing API support. The framework aims to be a comprehensive tool for researchers and practitioners in the field.
 
-![Demo Scenario Run](demo.gif)
+![Demo Scenario Run](docs/demo.gif)
 
 ## Installation
 
@@ -33,6 +33,8 @@ After the dependency installation you can run the back-end from `app.py` script.
 Web-based trajectory visualization application with HTML/CSS and JavaScript. The application will operate on a 2D grid-based map, laying the foundation for the entire framework.
 
 No need to setup any additional dependencies but you need to change API end-point URL according to back-end application. Only browser and you can access the client from `index.html`.
+
+![Architecture](docs/arch.png)
 
 ## API Details
 

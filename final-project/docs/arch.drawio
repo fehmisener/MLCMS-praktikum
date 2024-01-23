@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net" modified="2024-01-22T00:37:48.061Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="A7EXVfe4nvp1dOVTak2C" version="22.1.21" type="device">
+  <diagram name="Sayfa -1" id="kjzHYBhTTmwPLpPZRQS6">
+    <mxGraphModel dx="755" dy="401" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SbrX4vcHQ6yKB0vUgvRA-1" target="SbrX4vcHQ6yKB0vUgvRA-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-1" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/user.svg;" vertex="1" parent="1">
+          <mxGeometry x="160" y="280" width="30" height="81.08" as="geometry" />
+        </mxCell>
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-3" value="Front-End Client" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/mac_client.svg;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="280" y="295.54" width="47" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.007;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;exitX=1.053;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="SbrX4vcHQ6yKB0vUgvRA-3" target="SbrX4vcHQ6yKB0vUgvRA-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="320" as="sourcePoint" />
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-9" value="Vadere" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/generic_server.svg;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="580" y="295.54" width="28.000000000000004" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-12" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;startArrow=classic;startFill=1;entryX=-0.138;entryY=0.486;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="SbrX4vcHQ6yKB0vUgvRA-11" target="SbrX4vcHQ6yKB0vUgvRA-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="319" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SbrX4vcHQ6yKB0vUgvRA-11" value="Flask API" style="aspect=fixed;sketch=0;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=api;align=center;html=1;spacingTop=3;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;labelBackgroundColor=none;noLabel=0;" vertex="1" parent="1">
+          <mxGeometry x="413" y="295.54" width="50" height="48" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
