@@ -203,7 +203,129 @@ This Flask API is designed to execute scenarios using Vadere simulation. The `ru
 
 ```json
 {
-  "token": "93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
+    "message": "Scenario executed successfully",
+    "data": [
+        {
+            "pedestrianId": 1,
+            "simTime": 0.4,
+            "endTime-PID1": 1.0462944974202133,
+            "startX-PID1": 18.201,
+            "startY-PID1": 17.201,
+            "endX-PID1": 18.600763151745376,
+            "endY-PID1": 16.5824780131855,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 1.0462944974202133,
+            "endTime-PID1": 1.692588994840427,
+            "startX-PID1": 18.600763151745376,
+            "startY-PID1": 16.5824780131855,
+            "endX-PID1": 18.60076315174538,
+            "endY-PID1": 15.846013468440573,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 1.692588994840427,
+            "endTime-PID1": 2.33888349226064,
+            "startX-PID1": 18.60076315174538,
+            "startY-PID1": 15.846013468440573,
+            "endX-PID1": 18.600763151745376,
+            "endY-PID1": 15.109548923695645,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 2.33888349226064,
+            "endTime-PID1": 2.985177989680853,
+            "startX-PID1": 18.600763151745376,
+            "startY-PID1": 15.109548923695645,
+            "endX-PID1": 18.031377779379184,
+            "endY-PID1": 14.642451157267924,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 2.985177989680853,
+            "endTime-PID1": 3.631472487101066,
+            "startX-PID1": 18.031377779379184,
+            "startY-PID1": 14.642451157267924,
+            "endX-PID1": 17.362749472295896,
+            "endY-PID1": 14.333717918640655,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 3.631472487101066,
+            "endTime-PID1": 4.277766984521279,
+            "startX-PID1": 17.362749472295896,
+            "startY-PID1": 14.333717918640655,
+            "endX-PID1": 16.742657703949874,
+            "endY-PID1": 14.335881026492304,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 4.277766984521279,
+            "endTime-PID1": 4.924061481941493,
+            "startX-PID1": 16.742657703949874,
+            "startY-PID1": 14.335881026492304,
+            "endX-PID1": 16.144280261344623,
+            "endY-PID1": 14.38191006053886,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 4.924061481941493,
+            "endTime-PID1": 5.570355979361707,
+            "startX-PID1": 16.144280261344623,
+            "startY-PID1": 14.38191006053886,
+            "endX-PID1": 15.510854914078529,
+            "endY-PID1": 14.630350474599071,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 5.570355979361707,
+            "endTime-PID1": 6.21665047678192,
+            "startX-PID1": 15.510854914078529,
+            "startY-PID1": 14.630350474599071,
+            "endX-PID1": 15.385292681877443,
+            "endY-PID1": 15.356032327418225,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 6.21665047678192,
+            "endTime-PID1": 6.862944974202134,
+            "startX-PID1": 15.385292681877443,
+            "startY-PID1": 15.356032327418225,
+            "endX-PID1": 15.385292681877443,
+            "endY-PID1": 16.09249687216315,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 6.862944974202134,
+            "endTime-PID1": 7.509239471622347,
+            "startX-PID1": 15.385292681877443,
+            "startY-PID1": 16.09249687216315,
+            "endX-PID1": 15.75171605285868,
+            "endY-PID1": 16.694302186823606,
+            "targetId-PID2": 2
+        },
+        {
+            "pedestrianId": 1,
+            "simTime": 7.509239471622347,
+            "endTime-PID1": 8.15553396904256,
+            "startX-PID1": 15.75171605285868,
+            "startY-PID1": 16.694302186823606,
+            "endX-PID1": 16.119948325231142,
+            "endY-PID1": 17.06253445919607,
+            "targetId-PID2": 2
+        }
+    ]
 }
 ```
 </details>
@@ -231,7 +353,13 @@ This Flask API is designed to list avaliable models of Vadere. The `get-models` 
 
 ```json
 {
-  "token": "93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
+    "message": "Available models listed successfully",
+    "data": [
+        "osm",
+        "sfm",
+        "gnm",
+        "sct"
+    ]
 }
 ```
 </details>
