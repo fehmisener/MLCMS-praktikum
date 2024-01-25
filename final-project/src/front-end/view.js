@@ -132,6 +132,8 @@ confirmModelButton.addEventListener("click", function () {
 
         if (targetExists && sourceExists) {
             sendApiRequest(selectedModel);
+        } else {
+            alert("Please place a target and a source");
         }
     }
 });

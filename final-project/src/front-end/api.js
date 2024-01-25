@@ -150,7 +150,7 @@ function populateModelSelect(models) {
     models.data.forEach((model) => {
         const option = document.createElement("option");
         option.value = model;
-        option.text = model;
+        option.text = model.toUpperCase();
         modelSelect.appendChild(option);
     });
 }
