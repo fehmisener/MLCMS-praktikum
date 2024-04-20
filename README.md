@@ -4,6 +4,8 @@ Exercises for the course of Machine Learning in Crowd Modelling and Simulation @
 
 For details, please review each exercise's README.md file.
 
+For the awesome final project, [click here](https://github.com/fehmisener/MLCMS-praktikum/tree/main/final-project)!
+
 ## Authors
 
 - Didem Ongu 
